@@ -74,6 +74,9 @@ public class EjerciciosLocalizadoresTest {
     @Test
     public void registrationToFacebookTest() throws InterruptedException {
         WebDriver driver = getDriver("https://www.facebook.com/");
+        Thread.sleep(3000);
+        WebElement cookie = driver.findElement(By.xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']"));
+        cookie.click();
         driver.findElement(By.linkText("Crear cuenta nueva")).click();
 
         Thread.sleep(3000);

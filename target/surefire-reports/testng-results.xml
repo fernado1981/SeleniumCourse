@@ -2,42 +2,42 @@
 <testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-12-16T12:30:50 CET" name="Command line suite" finished-at="2020-12-16T12:31:31 CET" duration-ms="41051">
+  <suite started-at="2020-12-16T17:31:32 CET" name="Command line suite" finished-at="2020-12-16T17:32:10 CET" duration-ms="38257">
     <groups>
     </groups>
-    <test started-at="2020-12-16T12:30:50 CET" name="Command line test" finished-at="2020-12-16T12:31:31 CET" duration-ms="41051">
+    <test started-at="2020-12-16T17:31:32 CET" name="Command line test" finished-at="2020-12-16T17:32:10 CET" duration-ms="38257">
       <class name="clase2.EjerciciosLocalizadoresTest">
-        <test-method signature="customSalesforceLink()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T12:30:50 CET" name="customSalesforceLink" finished-at="2020-12-16T12:30:58 CET" duration-ms="8440" status="PASS">
+        <test-method signature="customSalesforceLink()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T17:31:32 CET" name="customSalesforceLink" finished-at="2020-12-16T17:31:40 CET" duration-ms="8426" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- customSalesforceLink -->
-        <test-method signature="forgotAccountPartialLinkTest()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T12:30:58 CET" name="forgotAccountPartialLinkTest" finished-at="2020-12-16T12:31:02 CET" duration-ms="3807" status="PASS">
+        <test-method signature="forgotAccountPartialLinkTest()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T17:31:40 CET" name="forgotAccountPartialLinkTest" finished-at="2020-12-16T17:31:45 CET" duration-ms="5112" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- forgotAccountPartialLinkTest -->
-        <test-method signature="forgotAccountTest()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T12:31:02 CET" name="forgotAccountTest" finished-at="2020-12-16T12:31:10 CET" duration-ms="7944" status="PASS">
+        <test-method signature="forgotAccountTest()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T17:31:45 CET" name="forgotAccountTest" finished-at="2020-12-16T17:31:50 CET" duration-ms="4355" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- forgotAccountTest -->
-        <test-method signature="registrationToFacebookTest()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T12:31:10 CET" name="registrationToFacebookTest" finished-at="2020-12-16T12:31:14 CET" duration-ms="3824" status="FAIL">
+        <test-method signature="registrationToFacebookTest()[pri:0, instance:clase2.EjerciciosLocalizadoresTest@45820e51]" started-at="2020-12-16T17:31:50 CET" name="registrationToFacebookTest" finished-at="2020-12-16T17:31:53 CET" duration-ms="3466" status="FAIL">
           <exception class="org.openqa.selenium.ElementClickInterceptedException">
             <message>
-              <![CDATA[element click intercepted: Element <a role="button" class="_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy" href="#" ajaxify="/reg/spotlight/" id="u_0_2" data-testid="open-registration-form-button" rel="async">...</a> is not clickable at point (880, 429). Other element would receive the click: <div class="_3ixn"></div>
+              <![CDATA[element click intercepted: Element <a role="button" class="_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy" href="#" ajaxify="/reg/spotlight/" id="u_0_2" data-testid="open-registration-form-button" rel="async">...</a> is not clickable at point (879, 429). Other element would receive the click: <div class="_3ixn"></div>
   (Session info: chrome=87.0.4280.88)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'MacBook-Pro-de-fernando.local', ip: 'fe80:0:0:0:1838:6754:4a3b:e6d8%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '14.0.1'
+System info: host: 'MacBook-Pro-de-fernando.local', ip: 'fe80:0:0:0:b:27e1:76bd:d474%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '14.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:50685}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 6d120a4fc02cc2abb75dc7be722dd59d]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:52092}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 516ee19ab37f9744557138d23f8d6073]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a role="button" class="_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy" href="#" ajaxify="/reg/spotlight/" id="u_0_2" data-testid="open-registration-form-button" rel="async">...</a> is not clickable at point (880, 429). Other element would receive the click: <div class="_3ixn"></div>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a role="button" class="_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy" href="#" ajaxify="/reg/spotlight/" id="u_0_2" data-testid="open-registration-form-button" rel="async">...</a> is not clickable at point (879, 429). Other element would receive the click: <div class="_3ixn"></div>
   (Session info: chrome=87.0.4280.88)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'MacBook-Pro-de-fernando.local', ip: 'fe80:0:0:0:1838:6754:4a3b:e6d8%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '14.0.1'
+System info: host: 'MacBook-Pro-de-fernando.local', ip: 'fe80:0:0:0:b:27e1:76bd:d474%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '14.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:50685}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 6d120a4fc02cc2abb75dc7be722dd59d
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:52092}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 516ee19ab37f9744557138d23f8d6073
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -98,19 +98,19 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
         </test-method> <!-- registrationToFacebookTest -->
       </class> <!-- clase2.EjerciciosLocalizadoresTest -->
       <class name="clase1.PrimerTest">
-        <test-method signature="getTitleTest()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T12:31:14 CET" name="getTitleTest" finished-at="2020-12-16T12:31:20 CET" duration-ms="6378" status="PASS">
+        <test-method signature="getTitleTest()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T17:31:53 CET" name="getTitleTest" finished-at="2020-12-16T17:32:01 CET" duration-ms="7599" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTitleTest -->
-        <test-method signature="mostrarSpotifyLinks()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T12:31:20 CET" name="mostrarSpotifyLinks" finished-at="2020-12-16T12:31:24 CET" duration-ms="3982" status="PASS">
+        <test-method signature="mostrarSpotifyLinks()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T17:32:01 CET" name="mostrarSpotifyLinks" finished-at="2020-12-16T17:32:04 CET" duration-ms="3842" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mostrarSpotifyLinks -->
-        <test-method signature="spotifyTest()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T12:31:24 CET" name="spotifyTest" finished-at="2020-12-16T12:31:27 CET" duration-ms="2878" status="PASS">
+        <test-method signature="spotifyTest()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T17:32:04 CET" name="spotifyTest" finished-at="2020-12-16T17:32:07 CET" duration-ms="2777" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- spotifyTest -->
-        <test-method signature="testing()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T12:31:27 CET" name="testing" finished-at="2020-12-16T12:31:31 CET" duration-ms="3752" status="PASS">
+        <test-method signature="testing()[pri:0, instance:clase1.PrimerTest@42d8062c]" started-at="2020-12-16T17:32:07 CET" name="testing" finished-at="2020-12-16T17:32:10 CET" duration-ms="2631" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testing -->
