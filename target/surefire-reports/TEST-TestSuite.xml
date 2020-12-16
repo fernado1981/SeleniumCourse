@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="1" name="TestSuite" time="45.158" errors="0" skipped="0">
+<testsuite tests="8" failures="1" name="TestSuite" time="41.011" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.1+7"/>
@@ -57,23 +57,23 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="customSalesforceLink" time="11.782"/>
-  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="forgotAccountPartialLinkTest" time="3.684"/>
-  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="forgotAccountTest" time="5.637"/>
-  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="registrationToFacebookTest" time="3.612">
+  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="customSalesforceLink" time="8.441"/>
+  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="forgotAccountPartialLinkTest" time="3.806"/>
+  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="forgotAccountTest" time="7.944"/>
+  <testcase classname="clase2.EjerciciosLocalizadoresTest" name="registrationToFacebookTest" time="3.83">
     <failure message="element click intercepted: Element &lt;a role=&quot;button&quot; class=&quot;_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy&quot; href=&quot;#&quot; ajaxify=&quot;/reg/spotlight/&quot; id=&quot;u_0_2&quot; data-testid=&quot;open-registration-form-button&quot; rel=&quot;async&quot;&gt;...&lt;/a&gt; is not clickable at point (880, 429). Other element would receive the click: &lt;div class=&quot;_3ixn&quot;&gt;&lt;/div&gt;
   (Session info: chrome=87.0.4280.88)
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;MacBook-Pro-de-fernando.local&apos;, ip: &apos;fe80:0:0:0:cd8:5fa7:d2f0:a639%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;14.0.1&apos;
+System info: host: &apos;MacBook-Pro-de-fernando.local&apos;, ip: &apos;fe80:0:0:0:1838:6754:4a3b:e6d8%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;14.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:57354}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: f659effaa06acc45e4e449d09b498b37" type="org.openqa.selenium.ElementClickInterceptedException">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a role=&quot;button&quot; class=&quot;_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy&quot; href=&quot;#&quot; ajaxify=&quot;/reg/spotlight/&quot; id=&quot;u_0_2&quot; data-testid=&quot;open-registration-form-button&quot; rel=&quot;async&quot;&gt;...&lt;/a&gt; is not clickable at point (880, 429). Other element would receive the click: &lt;div class=&quot;_3ixn&quot;&gt;&lt;/div&gt;
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:50685}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 6d120a4fc02cc2abb75dc7be722dd59d" type="org.openqa.selenium.ElementClickInterceptedException">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a role=&quot;button&quot; class=&quot;_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy&quot; href=&quot;#&quot; ajaxify=&quot;/reg/spotlight/&quot; id=&quot;u_0_2&quot; data-testid=&quot;open-registration-form-button&quot; rel=&quot;async&quot;&gt;...&lt;/a&gt; is not clickable at point (880, 429). Other element would receive the click: &lt;div class=&quot;_3ixn&quot;&gt;&lt;/div&gt;
   (Session info: chrome=87.0.4280.88)
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;MacBook-Pro-de-fernando.local&apos;, ip: &apos;fe80:0:0:0:cd8:5fa7:d2f0:a639%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;14.0.1&apos;
+System info: host: &apos;MacBook-Pro-de-fernando.local&apos;, ip: &apos;fe80:0:0:0:1838:6754:4a3b:e6d8%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;14.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:57354}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: f659effaa06acc45e4e449d09b498b37
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:50685}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 6d120a4fc02cc2abb75dc7be722dd59d
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -89,17 +89,17 @@ Session ID: f659effaa06acc45e4e449d09b498b37
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
 	at clase2.EjerciciosLocalizadoresTest.registrationToFacebookTest(EjerciciosLocalizadoresTest.java:77)
 </failure>
-    <system-err>Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 36119
+    <system-err>Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 5525
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-[1607957891.339][WARNING]: This version of ChromeDriver has not been tested with Chrome version 87.
-dic. 14, 2020 3:58:11 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+[1608118271.370][WARNING]: This version of ChromeDriver has not been tested with Chrome version 87.
+dic. 16, 2020 12:31:11 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="clase1.PrimerTest" name="getTitleTest" time="9.962"/>
-  <testcase classname="clase1.PrimerTest" name="mostrarSpotifyLinks" time="3.524"/>
-  <testcase classname="clase1.PrimerTest" name="spotifyTest" time="4.255"/>
-  <testcase classname="clase1.PrimerTest" name="testing" time="2.702"/>
+  <testcase classname="clase1.PrimerTest" name="getTitleTest" time="6.376"/>
+  <testcase classname="clase1.PrimerTest" name="mostrarSpotifyLinks" time="3.981"/>
+  <testcase classname="clase1.PrimerTest" name="spotifyTest" time="2.879"/>
+  <testcase classname="clase1.PrimerTest" name="testing" time="3.754"/>
 </testsuite>
