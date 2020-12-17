@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,37 +16,56 @@ public class EjerciciosLocalizadoresTest {
     @Before
     public WebDriver getDriver(String URL) {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
-        WebDriver driver = new ChromeDriver();
+
+        ChromeOptions options=new ChromeOptions();
+        options.addArguments("headless");
+
+        //ChromeDriver driver = new ChromeDriver(options);
+        ChromeDriver driver = new ChromeDriver();
         driver.get(URL);
         return driver;
     }
 
 
     @Test
-    public void forgotAccountTest() {
+    public void forgotAccountTest() throws InterruptedException {
         WebDriver driver = getDriver("https://www.facebook.com/");
-        //System.out.println("Titulo: " + driver.getTitle());
+
+        System.out.println("Titulo: " + driver.getTitle());
         Assert.assertEquals(driver.getTitle(), "Facebook - Entrar o registrarse");
+
         WebElement cookie = driver.findElement(By.xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']"));
         cookie.click();
+
+        Thread.sleep(3000);
+
         WebElement text =  driver.findElement(By.linkText("¿Has olvidado la contraseña?"));
         text.click();
-        //System.out.println("Titulo nuevo : " + driver.getTitle());
+
+        System.out.println("Titulo nuevo : " + driver.getTitle());
         Assert.assertNotEquals(driver.getTitle(), "Facebook - Inicia sesión o regístrate");
         Assert.assertEquals(driver.getTitle(), "¿Has olvidado la contraseña? | No puedo entrar | Facebook");
+
         closeDriver(driver);
     }
 
     @Test
-    public void forgotAccountPartialLinkTest() {
+    public void forgotAccountPartialLinkTest() throws InterruptedException {
         WebDriver driver = getDriver("https://www.facebook.com/");
-        //System.out.println("Titulo: " + driver.getTitle());
+
+        System.out.println("Titulo: " + driver.getTitle());
         Assert.assertNotEquals(driver.getTitle(),"Titulo: Facebook - Entrar o registrarse");
+
         WebElement cookie = driver.findElement(By.xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']"));
         cookie.click();
+
+        Thread.sleep(3000);
+
         driver.findElement(By.partialLinkText("olvidado")).click();
-        //System.out.println("Titulo nuevo : " + driver.getTitle());
+
+        System.out.println("Titulo nuevo : " + driver.getTitle());
         Assert.assertEquals(driver.getTitle(),"¿Has olvidado la contraseña? | No puedo entrar | Facebook");
+
         closeDriver(driver);
     }
 
@@ -61,12 +81,15 @@ public class EjerciciosLocalizadoresTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://login.salesforce.com/");
 
         driver.findElement(By.name("Continue")).click();
+
         Thread.sleep(3000);
+
         Assert.assertEquals(driver.getCurrentUrl(), "https://american-securities.okta.com/app/salesforce/ko9cqogcCYKWOFOXOOSX/sso/saml");
 
         driver.findElement(By.id("okta-signin-username")).sendKeys("testing@test.com");
         driver.findElement(By.name("password")).sendKeys("holamundo!");
         driver.findElement(By.id("okta-signin-submit")).click();
+
         closeDriver(driver);
     }
 
@@ -74,9 +97,12 @@ public class EjerciciosLocalizadoresTest {
     @Test
     public void registrationToFacebookTest() throws InterruptedException {
         WebDriver driver = getDriver("https://www.facebook.com/");
-        Thread.sleep(3000);
+
         WebElement cookie = driver.findElement(By.xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']"));
         cookie.click();
+
+        Thread.sleep(3000);
+
         driver.findElement(By.linkText("Crear cuenta nueva")).click();
 
         Thread.sleep(3000);
@@ -88,6 +114,7 @@ public class EjerciciosLocalizadoresTest {
         WebElement elementoMes = driver.findElement(By.id("month"));
         Select comboMeses = new Select(elementoMes);
         comboMeses.selectByVisibleText("ago");
+
         closeDriver(driver);
     }
 

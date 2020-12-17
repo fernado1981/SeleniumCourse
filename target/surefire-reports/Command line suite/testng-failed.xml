@@ -6,6 +6,8 @@
       <class name="clase2.EjerciciosLocalizadoresTest">
         <methods>
           <include name="registrationToFacebookTest"/>
+          <include name="forgotAccountPartialLinkTest"/>
+          <include name="forgotAccountTest"/>
         </methods>
       </class> <!-- clase2.EjerciciosLocalizadoresTest -->
     </classes>

@@ -27,8 +27,8 @@ public class PrimerTest {
 
         System.out.println("El titulo del sitio es " + driver.getTitle());
         System.out.println("La url del sitio es " + driver.getCurrentUrl());
-        closeDriver(driver);
 
+        closeDriver(driver);
     }
 
     @Test
@@ -61,12 +61,14 @@ public class PrimerTest {
                 System.out.println("Parrafo: " + listaParrafo.getText());
             }
         }
+
         closeDriver(driver);
     }
 
     @Test
     public void mostrarSpotifyLinks(){
         WebDriver driver = getDriver("https://www.spotify.com");
+
         List<WebElement> listaLinks = driver.findElements(By.tagName("a"));
         System.out.println("Existen " + listaLinks.size() + " links");
 
@@ -75,10 +77,12 @@ public class PrimerTest {
                 System.out.println("Link: " + element.getText());
             }
         }
+
         System.out.println("Se imprimiran solo 3 links: ");
         for (int i = 0; i < 3; i++){
             System.out.println(listaLinks.get(i).getText());
         }
+
         closeDriver(driver);
     }
 
@@ -93,8 +97,10 @@ public class PrimerTest {
         } else {
             System.out.println("Test failed!!!");
         }
+
         driver.findElement(By.name("q")).sendKeys("que es selenium?");
         driver.navigate().refresh();
+
         closeDriver(driver);
     }
 
