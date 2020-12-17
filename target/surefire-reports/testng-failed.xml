@@ -5,9 +5,7 @@
     <classes>
       <class name="clase2.EjerciciosLocalizadoresTest">
         <methods>
-          <include name="registrationToFacebookTest"/>
-          <include name="forgotAccountPartialLinkTest"/>
-          <include name="forgotAccountTest"/>
+          <include name="customSalesforceLink"/>
         </methods>
       </class> <!-- clase2.EjerciciosLocalizadoresTest -->
     </classes>

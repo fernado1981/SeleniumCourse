@@ -31,6 +31,8 @@ public class EjerciciosLocalizadoresTest {
     public void forgotAccountTest() throws InterruptedException {
         WebDriver driver = getDriver("https://www.facebook.com/");
 
+        Thread.sleep(3000);
+
         System.out.println("Titulo: " + driver.getTitle());
         Assert.assertEquals(driver.getTitle(), "Facebook - Entrar o registrarse");
 
@@ -41,6 +43,8 @@ public class EjerciciosLocalizadoresTest {
 
         WebElement text =  driver.findElement(By.linkText("¿Has olvidado la contraseña?"));
         text.click();
+
+        Thread.sleep(3000);
 
         System.out.println("Titulo nuevo : " + driver.getTitle());
         Assert.assertNotEquals(driver.getTitle(), "Facebook - Inicia sesión o regístrate");
@@ -53,6 +57,8 @@ public class EjerciciosLocalizadoresTest {
     public void forgotAccountPartialLinkTest() throws InterruptedException {
         WebDriver driver = getDriver("https://www.facebook.com/");
 
+        Thread.sleep(3000);
+
         System.out.println("Titulo: " + driver.getTitle());
         Assert.assertNotEquals(driver.getTitle(),"Titulo: Facebook - Entrar o registrarse");
 
@@ -62,6 +68,8 @@ public class EjerciciosLocalizadoresTest {
         Thread.sleep(3000);
 
         driver.findElement(By.partialLinkText("olvidado")).click();
+
+        Thread.sleep(3000);
 
         System.out.println("Titulo nuevo : " + driver.getTitle());
         Assert.assertEquals(driver.getTitle(),"¿Has olvidado la contraseña? | No puedo entrar | Facebook");
@@ -74,9 +82,15 @@ public class EjerciciosLocalizadoresTest {
         WebDriver driver = getDriver("https://login.salesforce.com/");
         //driver.findElement(By.linkText("Use Custom Domain")).click();
         //driver.findElement(By.partialLinkText("Use")).click();
+
+        Thread.sleep(3000);
+
         Assert.assertEquals(driver.getCurrentUrl(), "https://login.salesforce.com/");
 
         driver.findElement(By.id("mydomainLink")).click();
+
+        Thread.sleep(3000);
+
         driver.findElement(By.name("mydomain")).sendKeys("as");
         Assert.assertEquals(driver.getCurrentUrl(), "https://login.salesforce.com/");
 
@@ -86,8 +100,13 @@ public class EjerciciosLocalizadoresTest {
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://american-securities.okta.com/app/salesforce/ko9cqogcCYKWOFOXOOSX/sso/saml");
 
+        Thread.sleep(3000);
+
         driver.findElement(By.id("okta-signin-username")).sendKeys("testing@test.com");
         driver.findElement(By.name("password")).sendKeys("holamundo!");
+
+        Thread.sleep(3000);
+
         driver.findElement(By.id("okta-signin-submit")).click();
 
         closeDriver(driver);
