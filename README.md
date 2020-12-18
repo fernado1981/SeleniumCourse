@@ -1,3 +1,2 @@
-# SeleniumCourse
-prueba
-pruebas1
+# SeleniumCourse en java con maven
+Integración continua con Jenkins, git 

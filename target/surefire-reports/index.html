@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Command_line_suite" class="navigator-link">
-              <span class="suite-name border-failed">Command line suite</span>
+              <span class="suite-name border-passed">Command line suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,21 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">8 methods, 1 failed,   7 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Command_line_suite" class="hide-methods failed suite-Command_line_suite"> (hide)</a> <!-- hide-methods failed suite-Command_line_suite -->
-                      <a href="#" panel-name="suite-Command_line_suite" class="show-methods failed suite-Command_line_suite"> (show)</a> <!-- show-methods failed suite-Command_line_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Command_line_suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Command_line_suite" title="clase2.EjerciciosLocalizadoresTest" class="method navigator-link" hash-for-method="customSalesforceLink">customSalesforceLink</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Command_line_suite -->
+                    <span class="method-stats">8 methods,   8 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,6 +102,11 @@
                       <a href="#" panel-name="suite-Command_line_suite" class="show-methods passed suite-Command_line_suite"> (show)</a> <!-- show-methods passed suite-Command_line_suite -->
                     </span>
                     <div class="method-list-content passed suite-Command_line_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="clase2.EjerciciosLocalizadoresTest" class="method navigator-link" hash-for-method="customSalesforceLink">customSalesforceLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Command_line_suite" title="clase2.EjerciciosLocalizadoresTest" class="method navigator-link" hash-for-method="forgotAccountPartialLinkTest">forgotAccountPartialLinkTest</a> <!-- method navigator-link -->
@@ -163,9 +154,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Command_line_suite" class="panel Command_line_suite">
-          <div class="suite-Command_line_suite-class-failed">
+          <div class="suite-Command_line_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
+              <img src="passed.png"/>
               <span class="class-name">clase2.EjerciciosLocalizadoresTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -174,39 +165,8 @@
                   <a name="customSalesforceLink">
                   </a> <!-- customSalesforceLink -->
                   <span class="method-name">customSalesforceLink</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#okta\-signin\-username&quot;}
-  (Session info: chrome=87.0.4280.88)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;MacBook-Pro-de-fernando.local&apos;, ip: &apos;fe80:0:0:0:b:27e1:76bd:d474%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;14.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/3v/1sl8t8xd1ql...}, goog:chromeOptions: {debuggerAddress: localhost:56615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 76e2e8e50d790a9542d6df5543d12419
-*** Element info: {Using=id, value=okta-signin-username}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at clase2.EjerciciosLocalizadoresTest.customSalesforceLink(EjerciciosLocalizadoresTest.java:89)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
-... Removed 42 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Command_line_suite-class-failed -->
-          <div class="suite-Command_line_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">clase2.EjerciciosLocalizadoresTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="forgotAccountPartialLinkTest">
@@ -322,40 +282,40 @@ data.addRows(8);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'customSalesforceLink')
 data.setCell(0, 2, 'clase2.EjerciciosLocalizadoresTest')
-data.setCell(0, 3, 10329);
+data.setCell(0, 3, 21187);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'registrationToFacebookTest')
+data.setCell(1, 1, 'forgotAccountPartialLinkTest')
 data.setCell(1, 2, 'clase2.EjerciciosLocalizadoresTest')
-data.setCell(1, 3, 9286);
+data.setCell(1, 3, 12729);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'forgotAccountPartialLinkTest')
+data.setCell(2, 1, 'forgotAccountTest')
 data.setCell(2, 2, 'clase2.EjerciciosLocalizadoresTest')
-data.setCell(2, 3, 6846);
+data.setCell(2, 3, 12527);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'forgotAccountTest')
+data.setCell(3, 1, 'registrationToFacebookTest')
 data.setCell(3, 2, 'clase2.EjerciciosLocalizadoresTest')
-data.setCell(3, 3, 6228);
+data.setCell(3, 3, 9006);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'getTitleTest')
 data.setCell(4, 2, 'clase1.PrimerTest')
-data.setCell(4, 3, 4287);
+data.setCell(4, 3, 6116);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'spotifyTest')
 data.setCell(5, 2, 'clase1.PrimerTest')
-data.setCell(5, 3, 4256);
+data.setCell(5, 3, 3377);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'mostrarSpotifyLinks')
 data.setCell(6, 2, 'clase1.PrimerTest')
-data.setCell(6, 3, 3778);
+data.setCell(6, 3, 3323);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'testing')
 data.setCell(7, 2, 'clase1.PrimerTest')
-data.setCell(7, 3, 3289);
+data.setCell(7, 3, 3002);
 window.suiteTableData['Command_line_suite']= { tableData: data, tableDiv: 'times-div-Command_line_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 48 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Command_line_suite">
               </div> <!-- times-div-Command_line_suite -->
             </div> <!-- times-div -->
@@ -383,41 +343,39 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">clase2.EjerciciosLocalizadoresTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">customSalesforceLink</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">forgotAccountPartialLinkTest</span>
-                <span class="method-start">10336 ms</span>
+                <span class="method-start">21189 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">forgotAccountTest</span>
-                <span class="method-start">17183 ms</span>
+                <span class="method-start">33919 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">registrationToFacebookTest</span>
-                <span class="method-start">23413 ms</span>
+                <span class="method-start">46448 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">clase1.PrimerTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">getTitleTest</span>
-                <span class="method-start">32703 ms</span>
+                <span class="method-start">55457 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">mostrarSpotifyLinks</span>
-                <span class="method-start">36991 ms</span>
+                <span class="method-start">61574 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">spotifyTest</span>
-                <span class="method-start">40770 ms</span>
+                <span class="method-start">64897 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testing</span>
-                <span class="method-start">45027 ms</span>
+                <span class="method-start">68274 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
