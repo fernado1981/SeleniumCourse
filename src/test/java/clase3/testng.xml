@@ -1,0 +1,15 @@
+<suite name="Clase3" verbose="1">
+    <parameter name="specificTag" value="h2"></parameter>
+    <test name="Ejercicios Testng">
+        <parameter name="specificTag" value="h2"></parameter>
+        <groups>
+            <run>
+                <include name="sucessTests"/>
+                <include name="failTests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="clase3.testSalesforce"></class>
+        </classes>
+    </test>
+</suite>

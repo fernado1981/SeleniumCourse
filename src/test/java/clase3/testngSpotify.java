@@ -5,10 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class testngSpotify {
@@ -90,9 +89,42 @@ public class testngSpotify {
         }
     }
 
-    public void estngSalesforce(){
+    @Test
+    @Parameters({"specificTag"})
+    public void spotifytags(@Optional("h1") String tagName) throws InterruptedException {
+        List<WebElement> elements = driver.findElements(By.tagName(tagName));
+        Thread.sleep(3000);
+        if(tagName.equalsIgnoreCase("h1")){
+            System.out.println("Se mostrarán los h1");
+            for (WebElement e: elements) {
+                if (e.getTagName().equalsIgnoreCase("h1")) {
+                    System.out.println(e.getText());
+                }
+            }
+        }else if(tagName.equalsIgnoreCase("h2")){
+            System.out.println("Se mostrarán los h2");
+            for (WebElement e: elements) {
+                if (e.getTagName().equalsIgnoreCase("h2")) {
+                    System.out.println(e.getText());
+                }
+            }
+        }else if(tagName.equalsIgnoreCase("h3")){
+            System.out.println("Se mostrarán los h3");
+            for (WebElement e: elements) {
+                if (e.getTagName().equalsIgnoreCase("h3")) {
+                    System.out.println(e.getText());
+                }
+            }
+        }
 
-
+        //no le veo sentido si el tamaño de elements es mayopr de cero no se muedtra nada en cambio si es menor de 0 si ?¿
+        if(elements.size() > 0){
+            System.out.println("No se mostrarán elementos");
+        }else{
+            for (WebElement e: elements) {
+                System.out.println(e.getText());
+            }
+        }
     }
 
     @AfterMethod
