@@ -168,6 +168,7 @@ public class EjerciciosLocalizadoresTest {
 
     @Test
     public void spotifyByName() throws InterruptedException {
+        //css_selector
         WebDriver driver = getDriver("https://www.spotify.com/uy/signup/");
         Thread.sleep(5000);
 
