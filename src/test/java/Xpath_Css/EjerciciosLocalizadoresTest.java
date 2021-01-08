@@ -115,11 +115,10 @@ public class EjerciciosLocalizadoresTest {
         WebElement year= driver.findElement(By.xpath("//input[@id='year']"));
         year.sendKeys("1981");
 
-        //no veo otra forma de cogerlos :(
-        WebElement radio_sex = driver.findElement(By.xpath("//div[@role='radiogroup']//label[1]//span[1]"));
+        WebElement radio_sex = driver.findElement(By.xpath("//*[@name='gender'][@value='male']"));
         radio_sex.click();
 
-        WebElement checkbox_data= driver.findElement(By.xpath("//*[@id=\"__next\"]/main/div[2]/form/div[7]/label/span[1]"));
+        WebElement checkbox_data= driver.findElement(By.xpath("//span[@xpath='1']"));
         checkbox_data.click();
 
 
@@ -147,23 +146,17 @@ public class EjerciciosLocalizadoresTest {
         WebElement day = driver.findElement(By.xpath("//input[@placeholder='DD']"));
         day.sendKeys("31");
 
-        //este no esta
-        //WebElement select_month = driver.findElement(By.xpath("//select[@placeholder='month']"));
-        //select_month.findElement(By.xpath("//option[@value='02']")).click();
-
         WebElement year= driver.findElement(By.xpath("//input[@placeholder='AAAA']"));
         year.sendKeys("1981");
 
-
-        //no veo otra forma de cogerlos :(
-        WebElement radio_sex = driver.findElement(By.xpath("//div[@role='radiogroup']//label[1]//span[1]"));
+        WebElement radio_sex = driver.findElement(By.xpath("//*[@name='gender'][@value='male']"));
         radio_sex.click();
 
-        WebElement checkbox_data= driver.findElement(By.xpath("//*[@id=\"__next\"]/main/div[2]/form/div[7]/label/span[1]"));
+        WebElement checkbox_data= driver.findElement(By.xpath("//span[@xpath='1']"));
         checkbox_data.click();
 
 
-        closeDriver(driver);
+        //closeDriver(driver);
     }
 
     @Test
@@ -193,11 +186,10 @@ public class EjerciciosLocalizadoresTest {
         WebElement year= driver.findElement(By.cssSelector("input[id='year']"));
         year.sendKeys("1981");
 
-        //no veo otra forma de cogerlos :(
-        WebElement radio_sex = driver.findElement(By.xpath("//div[@role='radiogroup']//label[1]//span[1]"));
+        WebElement radio_sex = driver.findElement(By.xpath("//*[@name='gender'][@value='male']"));
         radio_sex.click();
 
-        WebElement checkbox_data= driver.findElement(By.xpath("//*[@id=\"__next\"]/main/div[2]/form/div[7]/label/span[1]"));
+        WebElement checkbox_data= driver.findElement(By.xpath("//span[@xpath='1']"));
         checkbox_data.click();
 
         closeDriver(driver);
