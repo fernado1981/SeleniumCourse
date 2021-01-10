@@ -20,7 +20,7 @@ public class PrimerTest {
         return driver;
     }
 
-    @Test(priority = 0)
+    @Test(priority = 0,groups = {"sucessTests"})
     public void testing(){
         WebDriver driver = getDriver("https://www.facebook.com");
         utilities util = new utilities(driver);
@@ -31,7 +31,7 @@ public class PrimerTest {
         closeDriver(driver);
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1,groups = {"sucessTests"})
     public void spotifyTest(){
         WebDriver driver = getDriver("https://www.spotify.com");
         utilities util = new utilities(driver);
@@ -48,7 +48,7 @@ public class PrimerTest {
         closeDriver(driver);
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2,groups = {"sucessTests"})
     public void mostrarSpotifyLinks(){
         WebDriver driver = getDriver("https://www.spotify.com");
         utilities util = new utilities(driver);
@@ -62,7 +62,7 @@ public class PrimerTest {
     }
 
 
-    @Test(priority = 3)
+    @Test(priority = 3,groups = {"sucessTests"})
     public void getTitleTest(){
         WebDriver driver = getDriver("https://www.google.es");
         utilities util = new utilities(driver);
