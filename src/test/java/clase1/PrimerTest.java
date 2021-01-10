@@ -1,111 +1,82 @@
 package clase1;
 
+import hook.complement_driver;
+import hook.utilities;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-
 import java.util.List;
 
 public class PrimerTest {
 
+    WebDriver driver;
+    complement_driver test = new complement_driver();
+
     @Before
     public WebDriver getDriver(String URL){
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.get(URL);
+        driver = test.Driver(URL, "chrome");
         return driver;
     }
 
-    @Test
+    @Test(priority = 0)
     public void testing(){
         WebDriver driver = getDriver("https://www.facebook.com");
-        driver.manage().window().maximize();
-
-        System.out.println("El titulo del sitio es " + driver.getTitle());
-        System.out.println("La url del sitio es " + driver.getCurrentUrl());
+        utilities util = new utilities(driver);
+        util.maximize_window();
+        util.get_title("Facebook - Entrar o registrarse");
+        util.get_current_url("https://www.facebook.com/");
 
         closeDriver(driver);
     }
 
-    @Test
+    @Test(priority = 1)
     public void spotifyTest(){
         WebDriver driver = getDriver("https://www.spotify.com");
-
-        System.out.println("El titulo del sitio es " + driver.getTitle());
-        System.out.println("La url del sitio es " + driver.getCurrentUrl());
-
-        List<WebElement> listaDeH1s = driver.findElements(By.tagName("h1"));
-        System.out.println("Se encontraron " + listaDeH1s.size() + " elementos");
-
-        for (WebElement elemento : listaDeH1s){
-            System.out.println("H1 -> " + elemento.getText());
-        }
-
-
-        List<WebElement> listaDeH2s = driver.findElements(By.tagName("h2"));
-        System.out.println("Se encontraron " + listaDeH2s.size() + " elementos");
-
-        for (WebElement elemento : listaDeH2s){
-            System.out.println("H2 -> " + elemento.getText());
-        }
-
-        List<WebElement> listaParrafos = driver.findElements(By.tagName("p"));
-        System.out.println("****** PARRAFOS ********");
-
-        for (WebElement listaParrafo : listaParrafos) {
-            if (!listaParrafo.getText().isEmpty()) {
-                System.out.println("Parrafo: " + listaParrafo.getText());
-            }
-        }
+        utilities util = new utilities(driver);
+        util.maximize_window();
+        util.get_title("Escuchar lo es todo - Spotify");
+        util.get_current_url("https://www.spotify.com/es/");
+        List<WebElement> listas_h1 = util.find_tag_name("h1");
+        util.print_listas(listas_h1,"h1");
+        List<WebElement> listas_h2 = util.find_tag_name("h2");
+        util.print_listas(listas_h2,"h2");
+        List<WebElement> listas_p = util.find_tag_name("p");
+        util.print_listas(listas_p,"p");
 
         closeDriver(driver);
     }
 
-    @Test
+    @Test(priority = 2)
     public void mostrarSpotifyLinks(){
         WebDriver driver = getDriver("https://www.spotify.com");
-
-        List<WebElement> listaLinks = driver.findElements(By.tagName("a"));
-        System.out.println("Existen " + listaLinks.size() + " links");
-
-        for (WebElement element : listaLinks){
-            if (!element.getText().isEmpty()) {
-                System.out.println("Link: " + element.getText());
-            }
-        }
-
-        System.out.println("Se imprimiran solo 3 links: ");
-        for (int i = 0; i < 3; i++){
-            System.out.println(listaLinks.get(i).getText());
-        }
+        utilities util = new utilities(driver);
+        util.maximize_window();
+        util.get_title("Escuchar lo es todo - Spotify");
+        util.get_current_url("https://www.spotify.com/es/");
+        List<WebElement>Listas_a = util.find_tag_name("a");
+        util.print_listas(Listas_a,"a");
 
         closeDriver(driver);
     }
 
 
-    @Test
+    @Test(priority = 3)
     public void getTitleTest(){
-        WebDriver driver = getDriver("https://www.google.com");
-        String googleTitle = driver.getTitle();
-
-        if (googleTitle.equals("Google")){
-            System.out.println("Test Passed!!!");
-        } else {
-            System.out.println("Test failed!!!");
-        }
-
-        driver.findElement(By.name("q")).sendKeys("que es selenium?");
-        driver.navigate().refresh();
+        WebDriver driver = getDriver("https://www.google.es");
+        utilities util = new utilities(driver);
+        util.maximize_window();
+        util.get_title("Google");
+        util.send_keys("q","que es selenium?");
+        util.refresh();
 
         closeDriver(driver);
     }
 
     @After
     public void closeDriver(WebDriver driver){
-        driver.close();
+        test.driver_close(driver);
+
     }
 }
