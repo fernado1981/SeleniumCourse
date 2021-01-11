@@ -68,7 +68,7 @@ public class PrimerTest {
         utilities util = new utilities(driver);
         util.maximize_window();
         util.get_title("Google");
-        util.send_keys("q","que es selenium?");
+        util.send_keys_name("q","que es selenium?");
         util.refresh();
 
         closeDriver(driver);
