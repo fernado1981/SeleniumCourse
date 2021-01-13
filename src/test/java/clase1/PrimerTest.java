@@ -32,7 +32,7 @@ public class PrimerTest {
     }
 
     @Test(priority = 1,groups = {"sucessTests"})
-    public void spotifyTest(){
+    public void spotifyTest() throws InterruptedException {
         WebDriver driver = getDriver("https://www.spotify.com");
         utilities util = new utilities(driver);
         util.maximize_window();
@@ -49,7 +49,7 @@ public class PrimerTest {
     }
 
     @Test(priority = 2,groups = {"sucessTests"})
-    public void mostrarSpotifyLinks(){
+    public void mostrarSpotifyLinks() throws InterruptedException {
         WebDriver driver = getDriver("https://www.spotify.com");
         utilities util = new utilities(driver);
         util.maximize_window();

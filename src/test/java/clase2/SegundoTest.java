@@ -56,10 +56,10 @@ public class SegundoTest {
         util.click_name("Continue");
         util.get_current_url("https://american-securities.okta.com/app/salesforce/ko9cqogcCYKWOFOXOOSX/sso/saml");
 
-        Thread.sleep(3000);
-        util.send_keys_xpath("//input[@id='okta-signin-username']","testing@testing.com");
-        util.send_keys_xpath("//input[@id='okta-signin-password']","holamundo!");
-        util.click_element_xpath("//input[@id='okta-signin-submit']");
+        util.send_keys_xpath("//input[@name='username']","testing@testing.com");
+        util.send_keys_xpath("//input[@name='password']","holamundo!");
+
+        util.click_element_xpath("//input[@type='submit']");
 
         closeDriver(driver);
     }
@@ -73,7 +73,6 @@ public class SegundoTest {
         util.click_element_xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']");
         util. click_element_link_text("Crear cuenta nueva");
 
-        Thread.sleep(3000);
 
         util.selectItemValue_day_month("day","25");
         util.selectItemValue_day_month("month","ago");

@@ -1,130 +1,120 @@
 package clase3;
 
-import org.openqa.selenium.By;
+import hook.complement_driver;
+import hook.utilities;
+import org.junit.Before;
+import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 public class testngSpotify {
 
-    public WebDriver driver;
-    public static final String SALEFORCE_URL= "https://login.salesforce.com/";
+    WebDriver driver;
+    complement_driver test = new complement_driver();
 
-    @BeforeMethod
-    public void setup(){
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("https://www.spotify.com");
+    @Test(groups = {"sucessTests","failTests"})
+
+    @Before
+    public WebDriver getDriver(String URL){
+        driver = test.Driver(URL, "chrome");
+        return driver;
     }
 
-    @Test (priority = 0)
+    @Test(priority = 0,groups = {"sucessTests"})
     public void verifySpotifyTitle(){
-        System.out.println("Title -> "+ driver.getTitle());
-        String title = driver.getTitle();
-        Assert.assertEquals(title, "Escuchar lo es todo - Spotify");
+        WebDriver driver = getDriver("https://www.spotify.com");
+        utilities util = new utilities(driver);
+        util.maximize_window();
+        util.get_title("Escuchar lo es todo - Spotify");
+
     }
 
-    @Test (priority = 1)
-    public void verifySignupUrl(){
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//a[normalize-space()='Registrarse']")).click();
+    @Test(priority = 1,groups = {"sucessTests"})
+    public void verifySignupUrl() throws InterruptedException {
+        WebDriver driver = getDriver("https://www.spotify.com");
+        utilities util = new utilities(driver);
+        util.maximize_window();
+        util.click_element_xpath("//*[contains(text(), 'Aceptar Cookies')]");
+        util.click_element_xpath("//a[normalize-space()='Registrarse']");
+        util.get_current_url("https://www.spotify.com/es/signup/");
 
-        String currentUrl = driver.getCurrentUrl();
-        Assert.assertTrue(currentUrl.contains("signup"));
     }
 
-    @Test (priority = 2)
-    public void invalidEmailTest(){
-        driver.findElement(By.xpath("//a[normalize-space()='Registrarse']")).click();
-        driver.findElement(By.name("email")).sendKeys("test.com");
+    @Test(priority = 2, enabled = false, groups = {"failTests"})
+    public void invalidEmailTest( ){
+        WebDriver driver = getDriver("https://www.spotify.com");
+        utilities util = new utilities(driver);
+        util.maximize_window();
 
-        driver.findElement(By.id("confirm")).sendKeys("test.com");
-        WebElement emailErrMsg = driver.findElement(By.xpath("//*[contains(text(),'Este correo electrónico no es válido.')]"));
-        Assert.assertEquals(emailErrMsg.getText(),"Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com" );
-        Assert.assertTrue(emailErrMsg.getText().contains("ejemplo@email.com"));
-        Assert.assertFalse(emailErrMsg.getText().contains("Congratulations!!"));
+        util.click_element_xpath("//*[contains(text(), 'Aceptar Cookies')]");
+        util.click_element_xpath("//a[normalize-space()='Registrarse']");
+        util.send_keys_name("email","test.com");
+        util.send_keys_id("confirm","test.com");
+
+        util.get_text_xpath_email_error("//*[contains(text(),'Este correo electrónico no es válido.')]", "Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com");
+
     }
 
-    @Test (priority = 3)
-    public void validateExistingEmail() throws InterruptedException {
-        driver.findElement(By.xpath("//a[normalize-space()='Registrarse']")).click();
-        driver.findElement(By.name("email")).sendKeys("test@test.com");
-        driver.findElement(By.id("confirm")).sendKeys("test@test.com");
+    @Test(priority = 3,enabled = false, groups = {"failTests"})
+    public void validateExistingEmail(){
+        WebDriver driver = getDriver("https://www.spotify.com");
+        utilities util = new utilities(driver);
+        util.maximize_window();
 
-        Thread.sleep(3000);
-        WebElement emailErrMsg = driver.findElement(By.xpath("//*[contains(text(),'Este correo electrónico ya')]"));
-        Assert.assertEquals(emailErrMsg.getText(),"Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
+        util.click_element_xpath("//*[contains(text(), 'Aceptar Cookies')]");
+        util.click_element_xpath("//a[normalize-space()='Registrarse']");
+
+        util.send_keys_name("email","test@test.com");
+        util.send_keys_id("confirm", "test@test.com");
+
+
+        util.get_text_xpath_email_error("//*[contains(text(),'Este correo electrónico ya')]", "Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
+
     }
 
-    @Test (priority = 4)
+    @Test(priority = 4,enabled = false, groups = {"failTests"})
     public void checkEqualEmailsError() throws InterruptedException {
-        driver.findElement(By.xpath("//a[normalize-space()='Registrarse']")).click();
-        driver.findElement(By.name("email")).sendKeys("test999@test.com");
-        driver.findElement(By.id("confirm")).sendKeys("hola@hola.com");
-        driver.findElement(By.xpath("//input[@id='password']")).click();
+        WebDriver driver = getDriver("https://www.spotify.com");
+        utilities util = new utilities(driver);
+        util.maximize_window();
 
-        Thread.sleep(3000);
-        WebElement emailErrMsg = driver.findElement(By.xpath("//*[contains(text(),'Este correo electrónico ya')]"));
-        Assert.assertEquals(emailErrMsg.getText(),"Este correo electrónico ya está conectado a una cuenta. Inicia sesión.") ;
+        util.click_element_xpath("//*[contains(text(), 'Aceptar Cookies')]");
+        util.click_element_xpath("//a[normalize-space()='Registrarse']");
+        util.send_keys_name("email","test999@test.com");
+        util.send_keys_id("confirm", "hola@hola.com");
+        util.click_element_xpath("//input[@id='password']");
 
+        util.get_text_xpath_email_error("//*[contains(text(),'Este correo electrónico ya')]", "Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
+        util.get_text_xpath_email_error("//*[contains(text(),'Las direcciones de correo electrónico no coinciden.')]","Las direcciones de correo electrónico no coinciden.");
 
-        WebElement passErrMsg = driver.findElement(By.xpath("//*[contains(text(),'Las direcciones de correo electrónico no coinciden')]"));
-        Assert.assertEquals(passErrMsg.getText(),"Las direcciones de correo electrónico no coinciden.");
     }
 
-    @Test (priority = 5)
+    @Test(priority = 5,groups = {"sucessTests"})
     public void checkEqualErrorMessages() throws InterruptedException {
-        driver.findElement(By.xpath("//a[normalize-space()='Registrarse']")).click();
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        WebDriver driver = getDriver("https://www.spotify.com");
+        utilities util = new utilities(driver);
+        util.maximize_window();
 
-        int totalMsgError = 0;
-        totalMsgError = driver.findElements(By.xpath("//*[@aria-label='Indicador de error']")).size();
-        if(totalMsgError == 9){
-            Assert.assertEquals(totalMsgError,9);
-        }
+        util.click_element_xpath("//a[normalize-space()='Registrarse']");
+        util.click_element_xpath("//button[@type='submit']");
+        util.find_total_msg_error_xpath("//*[@aria-label='Indicador de error']");
+
     }
 
     @Test
     @Parameters({"specificTag"})
     public void spotifytags(@Optional("h1") String tagName) throws InterruptedException {
-        List<WebElement> elements = driver.findElements(By.tagName(tagName));
-        Thread.sleep(3000);
-        if(tagName.equalsIgnoreCase("h1")){
-            System.out.println("Se mostrarán los h1");
-            for (WebElement e: elements) {
-                if (e.getTagName().equalsIgnoreCase("h1")) {
-                    System.out.println(e.getText());
-                }
-            }
-        }else if(tagName.equalsIgnoreCase("h2")){
-            System.out.println("Se mostrarán los h2");
-            for (WebElement e: elements) {
-                if (e.getTagName().equalsIgnoreCase("h2")) {
-                    System.out.println(e.getText());
-                }
-            }
-        }else if(tagName.equalsIgnoreCase("h3")){
-            System.out.println("Se mostrarán los h3");
-            for (WebElement e: elements) {
-                if (e.getTagName().equalsIgnoreCase("h3")) {
-                    System.out.println(e.getText());
-                }
-            }
-        }
+        WebDriver driver = getDriver("https://www.spotify.com");
+        utilities util = new utilities(driver);
+        util.maximize_window();
 
-        //no le veo sentido si el tamaño de elements es mayopr de cero no se muedtra nada en cambio si es menor de 0 si ?¿
-        if(elements.size() > 0){
-            System.out.println("No se mostrarán elementos");
-        }else{
-            for (WebElement e: elements) {
-                System.out.println(e.getText());
-            }
-        }
+        util.click_element_xpath("//a[normalize-space()='Registrarse']");
+        List<WebElement>Listas = util.find_tag_name(tagName);
+        util.print_listas(Listas,tagName);
     }
 
     @AfterMethod

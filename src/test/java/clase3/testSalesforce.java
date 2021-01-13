@@ -1,65 +1,69 @@
 package clase3;
 
-import org.openqa.selenium.By;
+import hook.complement_driver;
+import hook.utilities;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class testSalesforce {
 
-    public WebDriver driver;
-    public static final String SALEFORCE_URL= "https://login.salesforce.com/";
-    public static final String SALEFORCE_URL_eu= "https://login.salesforce.com/?locale=eu";
-    private String url;
+    WebDriver driver;
+    complement_driver test = new complement_driver();
 
     @Test(groups = {"sucessTests","failTests"})
 
-    @BeforeMethod
-    public void setup(){
-        this.url = SALEFORCE_URL;
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
-        driver = new ChromeDriver();
-        driver.get(url);
+    @Before
+    public WebDriver getDriver(String URL){
+        driver = test.Driver(URL, "chrome");
+        return driver;
     }
 
     @Test(priority = 0, groups = {"sucessTests"})
     public void validateSalesforceLogoTest(){
-        WebElement logo = driver.findElement(By.id("logo"));
-        String tagName = logo.getTagName();
-        Assert.assertEquals("img", tagName);
-        String attr = logo.getAttribute("alt");
-        Assert.assertEquals("Salesforce", attr);
+        WebDriver driver = getDriver("https://login.salesforce.com/");
+        utilities util = new utilities(driver);
+        util.maximize_window();
+
+        util.find_id_search_tag("logo","img");
+        util.find_id_search_attribute("logo","Salesforce","alt");
     }
 
-    @Test(priority = 4, enabled=false, groups = {"failTests"})
+    @Test(priority = 1, enabled = false, groups = {"sucessTests"})
     public void remenberMelsSelected(){
-        driver.get(SALEFORCE_URL_eu);
-        String urlactual=driver.getCurrentUrl();
-        Assert.assertEquals("https://login.salesforce.com/?locale=eu",urlactual);
-        WebElement remenber= driver.findElement(By.xpath("//input[@id='rememberUn']"));
-        remenber.click();
-        Assert.assertTrue(remenber.isSelected());
-}
-    @Test(priority = 2, groups = {"succesTests"})
+        WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
+        utilities util = new utilities(driver);
+        util.maximize_window();
+
+        util.get_current_url("https://login.salesforce.com/?locale=eu");
+        util.click_element_xpath("//input[@id='rememberUn']");
+        //Assert.assertTrue(remenber.isSelected());
+    }
+
+    @Test(priority = 2, groups = {"sucessTests"})
     public void FooterIsValid(){
-       WebElement footerText = driver.findElement(By.xpath("//*[contains(text(),'Reservados todos los derechos')]"));
-       Assert.assertEquals(footerText.getText(),"© 2021 salesforce.com, inc. Reservados todos los derechos. | Privacidad");
-       Assert.assertTrue(footerText.getText().contains("Reservados todos los derechos"));
+        WebDriver driver = getDriver("https://login.salesforce.com/");
+        utilities util = new utilities(driver);
+        util.maximize_window();
+
+        util.find_xpath_search_text("//*[contains(text(),'Reservados todos los derechos')]","© 2021 salesforce.com, inc. Reservados todos los derechos. | Privacidad","Reservados todos los derechos");
+
     }
-    @Test(priority = 3, groups = {"succesTests"})
+
+    @Test(priority = 3, groups = {"sucessTests"})
     public void LoginFailureTest() throws InterruptedException {
-        driver.get(SALEFORCE_URL_eu);
-        driver.findElement(By.xpath("//input[@id='username']")).sendKeys("test@test.com");
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123466");
-        driver.findElement(By.xpath("//input[@id='Login']")).click();
-        Thread.sleep(3000);
-        String testError = driver.findElement(By.xpath("//div[@id='error']")).getText();
-        Assert.assertEquals(testError,"Your access to salesforce.com has been disabled by your system administrator. Please contact your Administrator for more information.");
-    }
+        WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
+        utilities util = new utilities(driver);
+        util.maximize_window();
+
+        util.send_keys_xpath("//input[@id='username']","test@test.com");
+        util.send_keys_xpath("//input[@id='password']","123466");
+        util.click_element_xpath("//input[@id='Login']");
+
+        util.find_xpath_search_text("//div[@id='error']","Your access to salesforce.com has been disabled by your system administrator. Please contact your Administrator for more information.","null");
+
+   }
 
     @AfterMethod
     public void cerrarDriver(){
