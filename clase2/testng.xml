@@ -1,0 +1,13 @@
+<suite name="clase2" verbose="1">
+    <test name="Ejercicios Testng">
+        <groups>
+            <run>
+                <include name="sucessTests"/>
+                <include name="failTests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="clase2.SegundoTest"></class>
+        </classes>
+    </test>
+</suite>
