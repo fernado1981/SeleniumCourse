@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 
-public class utilities {
+public class Utilities {
 
 
     WebDriver driver;
     WebDriverWait wait;
 
-    public utilities(WebDriver remoteDriver) {
+    public Utilities(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
     }
@@ -28,12 +28,20 @@ public class utilities {
     public void refresh(){ driver.navigate().refresh(); }
 
     //get title & current_url
-    public void get_title(String title) {
-        Assert.assertEquals(title,driver.getTitle());
+    public void get_title(String title, boolean igual) {
+        if(igual) {
+            Assert.assertEquals(title, driver.getTitle());
+        }else{
+            Assert.assertNotEquals(title, driver.getTitle());
+        }
     }
 
-    public void get_current_url(String url) {
-        Assert.assertEquals(url, driver.getCurrentUrl());
+    public void get_current_url(String url, boolean igual) {
+        if(igual) {
+            Assert.assertEquals(url, driver.getCurrentUrl());
+        }else{
+            Assert.assertNotEquals(url, driver.getCurrentUrl());
+        }
     }
 
     //send_keys (name,id,xpath)
@@ -46,36 +54,50 @@ public class utilities {
         driver.findElement(By.id(tag_id)).sendKeys(input_text);
     }
 
-    public void send_keys_xpath(String xpath, String input_text){
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
-        driver.findElement(By.xpath(xpath)).sendKeys(input_text);
+    public void send_keys_xpath(String tag_xpath, String input_text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(tag_xpath)));
+        driver.findElement(By.xpath(tag_xpath)).sendKeys(input_text);
+    }
+    public void send_keys_css_selector(String tag_css_selector, String input_text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(tag_css_selector)));
+        driver.findElement(By.cssSelector(tag_css_selector)).sendKeys(input_text);
     }
 
     //click (xpath,lint_text,partial_linkt_text,id,name)
-    public void click_element_xpath(String xpath){
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(xpath))));
-        driver.findElement(By.xpath(xpath)).click();
-
+    public void click_element_xpath(String text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(text)));
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(text))));
+        driver.findElement(By.xpath(text)).click();
     }
 
     public void click_element_link_text(String text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText(text)));
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.linkText(text))));
         driver.findElement(By.linkText(text)).click();
     }
 
     public void click_element_partial_link_text(String text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.partialLinkText(text)));
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.partialLinkText(text))));
         driver.findElement(By.partialLinkText(text)).click();
     }
 
     public void click_element_id(String text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(text)));
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id(text))));
         driver.findElement(By.id(text)).click();
     }
 
     public void click_name(String text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.name(text)));
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.name(text))));
         driver.findElement(By.name(text)).click();
+    }
+
+    public void click_css_selector(String text){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(text)));
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector(text))));
+        driver.findElement(By.cssSelector(text)).click();
     }
 
     //get_text xpath
@@ -111,7 +133,7 @@ public class utilities {
         return listas;
     }
 
-    public void print_listas(List<WebElement> listas, String tag) throws InterruptedException {
+    public void print_listas(List<WebElement> listas, String tag){
         if (tag.equalsIgnoreCase("a")) {
             System.out.println("Se imprimiran solo 3 links: ");
             for (int i = 0; i < 3; i++) {
@@ -126,38 +148,7 @@ public class utilities {
         }
     }
 
-    //de la clase2
-    public void selectItemValue_day_month(String tag_id,String option_value){
 
-        WebElement elemento = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(tag_id)));
-        Select combo = new Select(elemento);
-        combo.selectByVisibleText(option_value);
-        if (tag_id.equalsIgnoreCase("day")) {
-            WebElement values = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(tag_id)));
-            Assert.assertEquals(option_value, values.getAttribute("value"));
-        }else{
-            Map<String, Integer> map = new HashMap<String, Integer>();
-            map.put("ene", 1);
-            map.put("feb", 2);
-            map.put("mar", 3);
-            map.put("abr", 4);
-            map.put("may", 5);
-            map.put("jun", 6);
-            map.put("jul", 7);
-            map.put("ago", 8);
-            map.put("sep", 9);
-            map.put("oct", 10);
-            map.put("nov", 11);
-            map.put("dic", 12);
-
-            int mes = map.get("ago");
-            WebElement values = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(tag_id)));
-            int mes_value = Integer.parseInt(values.getAttribute("value"));
-            Assert.assertEquals(mes, mes_value);
-        }
-    }
-
-    //de la clase 3
     public void find_total_msg_error_xpath(String xpath){
         int totalMsgError = 0;
 
@@ -166,5 +157,23 @@ public class utilities {
             Assert.assertEquals(totalMsgError,9);
         }
 
+    }
+
+    public void assert_combo_size_by_name(String name){
+        WebElement meses = driver.findElement(By.name(name));
+        Select combo = new Select(meses);
+
+        List<WebElement> options=combo.getOptions();
+        Assert.assertNotEquals(0, options.size());
+
+        boolean search = false;
+        for (WebElement opt:options){
+            System.out.println(opt.getText());
+            if(opt.getText().contentEquals("ene")){
+                search=true;
+                break;
+            }
+        }
+        Assert.assertTrue(search);
     }
 }

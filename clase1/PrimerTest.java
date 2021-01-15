@@ -1,18 +1,18 @@
 package clase1;
 
-import hook.complement_driver;
-import hook.utilities;
-import org.junit.After;
+import hook.ComplementDriver;
+import hook.Utilities;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import java.util.List;
 
 public class PrimerTest {
 
     WebDriver driver;
-    complement_driver test = new complement_driver();
+    ComplementDriver test = new ComplementDriver();
 
     @Before
     public WebDriver getDriver(String URL){
@@ -23,21 +23,23 @@ public class PrimerTest {
     @Test(priority = 0,groups = {"sucessTests"})
     public void testing(){
         WebDriver driver = getDriver("https://www.facebook.com");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_title("Facebook - Entrar o registrarse");
-        util.get_current_url("https://www.facebook.com/");
+        //cookie
+        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
 
-        closeDriver(driver);
+        util.get_title("Facebook - Entrar o registrarse", true);
+        util.get_current_url("https://www.facebook.com/",true);
+
     }
 
     @Test(priority = 1,groups = {"sucessTests"})
-    public void spotifyTest() throws InterruptedException {
+    public void spotifyTest(){
         WebDriver driver = getDriver("https://www.spotify.com");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_title("Escuchar lo es todo - Spotify");
-        util.get_current_url("https://www.spotify.com/es/");
+        util.get_title("Escuchar lo es todo - Spotify", true);
+        util.get_current_url("https://www.spotify.com/es/", true);
         List<WebElement> listas_h1 = util.find_tag_name("h1");
         util.print_listas(listas_h1,"h1");
         List<WebElement> listas_h2 = util.find_tag_name("h2");
@@ -45,38 +47,34 @@ public class PrimerTest {
         List<WebElement> listas_p = util.find_tag_name("p");
         util.print_listas(listas_p,"p");
 
-        closeDriver(driver);
     }
 
     @Test(priority = 2,groups = {"sucessTests"})
-    public void mostrarSpotifyLinks() throws InterruptedException {
+    public void mostrarSpotifyLinks(){
         WebDriver driver = getDriver("https://www.spotify.com");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_title("Escuchar lo es todo - Spotify");
-        util.get_current_url("https://www.spotify.com/es/");
+        util.get_title("Escuchar lo es todo - Spotify", true);
+        util.get_current_url("https://www.spotify.com/es/", true);
         List<WebElement>Listas_a = util.find_tag_name("a");
         util.print_listas(Listas_a,"a");
 
-        closeDriver(driver);
     }
 
 
     @Test(priority = 3,groups = {"sucessTests"})
     public void getTitleTest(){
         WebDriver driver = getDriver("https://www.google.es");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_title("Google");
+        util.get_title("Google", true);
         util.send_keys_name("q","que es selenium?");
         util.refresh();
 
-        closeDriver(driver);
     }
 
-    @After
-    public void closeDriver(WebDriver driver){
+    @AfterMethod
+    public void cerrarDriver(){
         test.driver_close(driver);
-
     }
 }

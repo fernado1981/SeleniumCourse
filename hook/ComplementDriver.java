@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class complement_driver {
+public class ComplementDriver {
 
     public WebDriver Driver(String URL, String navigator){
         if (navigator.equalsIgnoreCase("chrome")) {

@@ -1,16 +1,17 @@
 package clase2;
 
-import hook.complement_driver;
-import hook.utilities;
-import org.junit.After;
+import hook.ComplementDriver;
+import WebObject.FacebookFormRegisterBirtday;
+import hook.Utilities;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class SegundoTest {
 
     WebDriver driver;
-    complement_driver test = new complement_driver();
+    ComplementDriver test = new ComplementDriver();
 
     @Before
     public WebDriver getDriver(String URL){
@@ -19,69 +20,72 @@ public class SegundoTest {
     }
 
     @Test(priority = 0,groups = {"sucessTests"})
-    public void forgotAccountTest() throws InterruptedException {
+    public void forgotAccountTest(){
         WebDriver driver = getDriver("https://www.facebook.com/");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_title("Facebook - Entrar o registrarse");
-        util.click_element_xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']");
-        util.click_element_link_text("¿Has olvidado la contraseña?");
-        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook");
+        //cookie
+        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
 
-        closeDriver(driver);
+        util.get_title("Facebook - Entrar o registrarse", true);
+        util.click_element_link_text("¿Has olvidado la contraseña?");
+        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook", true);
+
     }
 
     @Test(priority = 1,groups = {"sucessTests"})
-    public void forgotAccountPartialLinkTest() throws InterruptedException {
+    public void forgotAccountPartialLinkTest(){
         WebDriver driver = getDriver("https://www.facebook.com/");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_title("Facebook - Entrar o registrarse");
-        util.click_element_xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']");
-        util.click_element_partial_link_text("olvidado");
-        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook");
+        //cookie
+        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
 
-        closeDriver(driver);
+        util.get_title("Facebook - Entrar o registrarse", true);
+        util.click_element_partial_link_text("olvidado");
+        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook",true);
+
     }
 
     @Test(priority = 2,groups = {"sucessTests"})
-    public void customSalesforceLink() throws InterruptedException {
+    public void customSalesforceLink(){
         WebDriver driver = getDriver("https://login.salesforce.com/");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_current_url("https://login.salesforce.com/");
+        util.get_current_url("https://login.salesforce.com/", true);
         util.click_element_id("mydomainLink");
         util.send_keys_name("mydomain","as");
-        util.get_current_url("https://login.salesforce.com/");
+        util.get_current_url("https://login.salesforce.com/", true);
         util.click_name("Continue");
-        util.get_current_url("https://american-securities.okta.com/app/salesforce/ko9cqogcCYKWOFOXOOSX/sso/saml");
+        util.get_current_url("https://american-securities.okta.com/app/salesforce/ko9cqogcCYKWOFOXOOSX/sso/saml", true);
 
         util.send_keys_xpath("//input[@name='username']","testing@testing.com");
         util.send_keys_xpath("//input[@name='password']","holamundo!");
 
         util.click_element_xpath("//input[@type='submit']");
 
-        closeDriver(driver);
     }
 
 
     @Test(priority = 3,groups = {"sucessTests"})
-    public void registrationToFacebookTest() throws InterruptedException {
+    public void registrationToFacebookTest(){
         WebDriver driver = getDriver("https://www.facebook.com/");
-        utilities util = new utilities(driver);
+        Utilities util = new Utilities(driver);
+        FacebookFormRegisterBirtday reg = new FacebookFormRegisterBirtday(driver);
         util.maximize_window();
-        util.click_element_xpath("//div[@aria-labelledby='cookie_banner_title'] //button[@data-cookiebanner='accept_button']");
-        util. click_element_link_text("Crear cuenta nueva");
+        //cookie
+        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        util.click_element_link_text("Crear cuenta nueva");
 
+        reg.select_item_value_day("id", "day", "25");
+        int mes = reg.select_item_value_month("id", "month", "ago");
+        reg.assert_month("id","month",mes);
 
-        util.selectItemValue_day_month("day","25");
-        util.selectItemValue_day_month("month","ago");
-
-        closeDriver(driver);
     }
 
-    @After
-    public void closeDriver(WebDriver driver){
-        driver.close();
+
+    @AfterMethod
+    public void cerrarDriver(){
+        test.driver_close(driver);
     }
 }

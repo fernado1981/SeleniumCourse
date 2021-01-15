@@ -1,7 +1,8 @@
 <suite name="Clase3" verbose="1">
-    <parameter name="specificTag" value="h2"></parameter>
     <test name="Ejercicios Testng">
         <parameter name="specificTag" value="h2"></parameter>
+        <parameter name="username" value="user@qa.com"></parameter>
+        <parameter name="password" value="holamundo123"></parameter>
         <groups>
             <run>
                 <include name="sucessTests"/>

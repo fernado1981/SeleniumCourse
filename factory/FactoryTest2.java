@@ -1,5 +1,6 @@
-package clase2;
+package factory;
 
+import clase2.SegundoTest;
 import org.testng.annotations.Factory;
 
 public class FactoryTest2 {

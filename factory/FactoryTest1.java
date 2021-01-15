@@ -1,5 +1,6 @@
-package clase1;
+package factory;
 
+import clase1.PrimerTest;
 import org.testng.annotations.Factory;
 
 public class FactoryTest1 {
