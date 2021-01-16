@@ -1,6 +1,0 @@
-#ejercicios con:
-click_element
-get_title
-get_current_url
-listas_h1
-send_keys_name

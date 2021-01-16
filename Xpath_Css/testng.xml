@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Xpath_Css.LocalizadoresXpathCssTest"></class>
+            <class name="Xpath_Css.docusignTest"></class>
         </classes>
     </test>
 </suite>

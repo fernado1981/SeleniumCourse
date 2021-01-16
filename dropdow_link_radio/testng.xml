@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="dropdow_link_radio.DropDownLinkRadioTest"></class>
+            <class name="dropdow_link_radio.FacebookTest"></class>
         </classes>
     </test>
 </suite>

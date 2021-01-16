@@ -1,28 +1,28 @@
 package clase3;
 
-import hook.ComplementDriver;
 import hook.Utilities;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TestSalesForce {
 
-    WebDriver driver;
-    ComplementDriver test = new ComplementDriver();
+    public WebDriver driver;
 
     @Test(groups = {"sucessTests","failTests"})
 
-    @Before
-    public WebDriver getDriver(String URL){
-        driver = test.Driver(URL, "chrome");
-        return driver;
+
+    @BeforeMethod
+    public void setup(){
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://login.salesforce.com/");
     }
 
     @Test(priority = 0, groups = {"sucessTests"})
     public void validateSalesforceLogoTest(){
-        WebDriver driver = getDriver("https://login.salesforce.com/");
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
@@ -32,8 +32,9 @@ public class TestSalesForce {
 
     @Test(priority = 1, enabled = false, groups = {"sucessTests"})
     public void remenberMelsSelected(){
-        WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
         Utilities util = new Utilities(driver);
+        //WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
+
         util.maximize_window();
 
         util.get_current_url("https://login.salesforce.com/?locale=eu", true);
@@ -43,7 +44,6 @@ public class TestSalesForce {
 
     @Test(priority = 2, groups = {"sucessTests"})
     public void FooterIsValid(){
-        WebDriver driver = getDriver("https://login.salesforce.com/");
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
@@ -53,20 +53,48 @@ public class TestSalesForce {
 
     @Test(priority = 3, groups = {"sucessTests"})
     public void LoginFailureTest(){
-        WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
         Utilities util = new Utilities(driver);
+        //WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
         util.maximize_window();
 
         util.send_keys_xpath("//input[@id='username']","test@test.com");
         util.send_keys_xpath("//input[@id='password']","123466");
         util.click_element_xpath("//input[@id='Login']");
 
-        util.find_xpath_search_text("//div[@id='error']","Your access to salesforce.com has been disabled by your system administrator. Please contact your Administrator for more information.","null");
+        util.find_xpath_search_text("//div[@id='error']","El administrador del sistema ha desactivado su acceso a salesforce.com. Póngase en contacto con su administrador si desea obtener más información.","null");
 
    }
 
+    @Test(priority = 2,groups = {"sucessTests"})
+    public void customSalesforceLinkA(){
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+        util.get_current_url("https://login.salesforce.com/", true);
+        util.click_element_id("mydomainLink");
+        util.send_keys_name("mydomain","as");
+        util.get_current_url("https://login.salesforce.com/", true);
+        util.click_name("Continue");
+        util.get_current_url("https://american-securities.okta.com/app/salesforce/ko9cqogcCYKWOFOXOOSX/sso/saml", true);
+
+        util.send_keys_xpath("//input[@name='username']","testing@testing.com");
+        util.send_keys_xpath("//input[@name='password']","holamundo!");
+
+        util.click_element_xpath("//input[@type='submit']");
+
+    }
+
+    @Test(priority = 2,groups = {"sucessTests"})
+    public void customSalesforceLinkB(){
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        util.click_element_link_text("Utilizar dominio personalizado");
+        util.send_keys_xpath("//input[@id='mydomain']","as");
+
+    }
+
     @AfterMethod
     public void cerrarDriver(){
-        test.driver_close(driver);
+        driver.quit();
     }
 }

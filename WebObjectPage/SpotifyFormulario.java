@@ -19,10 +19,10 @@ public class SpotifyFormulario {
 
     String cookies_xpath="//*[contains(text(), 'Aceptar Cookies')]";
     String email_name = "email";
-    String placeholder_email="//input[@placeholder='Introduce tu correo electrónico.']";
-    String placeholder_repit_email="//input[@placeholder='Introduce tu correo electrónico.']";
+    String placeholder_email="//input[@placeholder='Pon tu correo electrónico.']";
+    String placeholder_repit_email="//input[@placeholder='Vuelve a poner tu correo electrónico.']";
     String placeholder_passwd="//input[@placeholder='Crea una contraseña.']";
-    String placeholder_displayname="//input[@placeholder='Introduce un nombre de perfil.']";
+    String placeholder_displayname="//input[@placeholder='Pon un nombre de perfil.']";
     String css_selector_email="input[id='email']";
     String css_selector_confirm_email="input[id='confirm']";
     String css_selector_passwd="input[id='password']";

@@ -1,31 +1,33 @@
 package dropdow_link_radio;
 
 import WebObjectPage.FacebookHomePage;
-import hook.ComplementDriver;
 import WebObjectPage.FacebookFormRegister;
 import hook.Utilities;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class DropDownLinkRadioTest {
+public class FacebookTest {
 
-    WebDriver driver;
-    ComplementDriver test = new ComplementDriver();
+    public WebDriver driver;
 
-    @Before
-    public WebDriver getDriver(String URL) {
-        driver = test.Driver(URL,"chrome");
-        return driver;
+    @Test(groups = {"sucessTests","failTests"})
+
+
+    @BeforeMethod
+    public void setup(){
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/");
     }
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void forgotAccountTest(){
-        driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegister reg = new FacebookFormRegister(driver);
-        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
 
         //cookie
@@ -40,10 +42,9 @@ public class DropDownLinkRadioTest {
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void forgotAccountPartialLinkTest(){
-        driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegister reg = new FacebookFormRegister(driver);
-        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
 
         //cookie
@@ -53,23 +54,11 @@ public class DropDownLinkRadioTest {
         reg.title_page(true);
     }
 
-    @Test(priority = 2,groups = {"sucessTests"})
-    public void customSalesforceLink(){
-        driver = getDriver("https://login.salesforce.com/");
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
-        util.click_element_link_text("Utilizar dominio personalizado");
-        util.send_keys_xpath("//input[@id='mydomain']","as");
-
-    }
-
     @Test(priority = 3,groups = {"sucessTests"})
     public void checkBoxAndComboboxTest(){
-        driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegister reg = new FacebookFormRegister(driver);
-        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
 
         //cookie
@@ -95,10 +84,9 @@ public class DropDownLinkRadioTest {
 
     @Test(priority = 4,groups = {"sucessTests"})
     public void birthdateTest() {
-        driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegister reg = new FacebookFormRegister(driver);
-        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
 
         //cookie
@@ -118,10 +106,9 @@ public class DropDownLinkRadioTest {
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void comboboxTest(){
-        driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegister reg = new FacebookFormRegister(driver);
-        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
 
         //cookie
@@ -141,10 +128,9 @@ public class DropDownLinkRadioTest {
 
     @Test(priority = 6,groups = {"sucessTests"})
     public  void completeRegistration(){
-        driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegister reg = new FacebookFormRegister(driver);
-        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
 
         //cookie
@@ -167,11 +153,10 @@ public class DropDownLinkRadioTest {
     }
 
     @Test(priority = 7,groups = {"sucessTests"})
-    public void registrationFacebookTest() throws InterruptedException {
-        driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegister reg = new FacebookFormRegister(driver);
-        FacebookHomePage home = new FacebookHomePage(driver);
+    public void registrationFacebookTest(){
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
 
         //cookie
@@ -195,6 +180,6 @@ public class DropDownLinkRadioTest {
 
     @AfterMethod
     public void cerrarDriver(){
-        test.driver_close(driver);
+        driver.quit();
     }
 }

@@ -2,9 +2,8 @@ package clase3;
 
 import WebObjectPage.SpotifyFormulario;
 import WebObjectPage.SpotifyHome;
-import hook.ComplementDriver;
 import hook.Utilities;
-import org.junit.Before;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,20 +14,20 @@ import java.util.List;
 
 public class TestSpotify {
 
-    WebDriver driver;
-    ComplementDriver test = new ComplementDriver();
+    public WebDriver driver;
 
     @Test(groups = {"sucessTests","failTests"})
 
-    @Before
-    public WebDriver getDriver(String URL){
-        driver = test.Driver(URL, "chrome");
-        return driver;
+
+    @BeforeMethod
+    public void setup(){
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.spotify.com");
     }
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void verifySpotifyTitle(){
-        WebDriver driver = getDriver("https://www.spotify.com");
         SpotifyHome home =  new SpotifyHome(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
@@ -42,8 +41,7 @@ public class TestSpotify {
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void verifySignupUrl(){
-        WebDriver driver = getDriver("https://www.spotify.com");
-        SpotifyHome home = new SpotifyHome(driver);
+        SpotifyHome home =  new SpotifyHome(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
@@ -59,8 +57,7 @@ public class TestSpotify {
 
     @Test(priority = 2, enabled = false, groups = {"failTests"})
     public void invalidEmailTest( ){
-        WebDriver driver = getDriver("https://www.spotify.com");
-        SpotifyHome home = new SpotifyHome(driver);
+        SpotifyHome home =  new SpotifyHome(driver);
         SpotifyFormulario reg = new SpotifyFormulario(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
@@ -81,8 +78,7 @@ public class TestSpotify {
 
     @Test(priority = 3,enabled = true, groups = {"failTests"})
     public void validateExistingEmail(){
-        WebDriver driver = getDriver("https://www.spotify.com");
-        SpotifyHome home = new SpotifyHome(driver);
+        SpotifyHome home =  new SpotifyHome(driver);
         SpotifyFormulario reg = new SpotifyFormulario(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
@@ -103,8 +99,7 @@ public class TestSpotify {
 
     @Test(priority = 4,enabled = true, groups = {"failTests"})
     public void checkEqualEmailsError(){
-        WebDriver driver = getDriver("https://www.spotify.com");
-        SpotifyHome home = new SpotifyHome(driver);
+        SpotifyHome home =  new SpotifyHome(driver);
         SpotifyFormulario reg = new SpotifyFormulario(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
@@ -126,8 +121,7 @@ public class TestSpotify {
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void checkEqualErrorMessages(){
-        WebDriver driver = getDriver("https://www.spotify.com");
-        SpotifyHome home = new SpotifyHome(driver);
+        SpotifyHome home =  new SpotifyHome(driver);
         SpotifyFormulario reg = new SpotifyFormulario(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
@@ -146,8 +140,7 @@ public class TestSpotify {
     @Test
     @Parameters({"specificTag"})
     public void spotifytags(@Optional("h1") String tagName){
-        WebDriver driver = getDriver("https://www.spotify.com");
-        SpotifyHome home = new SpotifyHome(driver);
+        SpotifyHome home =  new SpotifyHome(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
@@ -160,8 +153,128 @@ public class TestSpotify {
         util.print_listas(Listas,tagName);
     }
 
+    @Test(priority = 2,groups = {"sucessTests"})
+    public void spotifyByNameTest(){
+        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        Utilities util = new Utilities(driver);
+
+        util.maximize_window();
+
+        //cookie
+        home.accept_cookies();
+        //registration
+        home.registration();
+
+        //formulario
+        reg.email_name("pepe@pepe.com");
+        reg.confirm_email_name("pepe@pepe.com");
+
+        reg.password_send_key("pepito");
+        reg.display_name("pepin");
+
+        //formulario SpotifyFormulario
+        reg.select_item_value_day("css_selector","31");
+        reg.select_item_value_month("css_selector","Febrero");
+        reg.select_item_value_year("css_selector","1981");
+        reg.gender_sex();
+
+        //aceptar terminos
+        reg.accept_terms();
+
+    }
+
+    @Test(priority = 3,groups = {"sucessTests"})
+    public void spotifyByPlaceHolder(){
+        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //cookie
+        home.accept_cookies();
+        //registration
+        home.registration();
+
+        //formulario
+        reg.email_placeholder("pepe@pepe.com");
+        reg.confirm_email_placeholder("pepe@pepe.com");
+        reg.password_placeholder("pepito");
+        reg.displayname_placeholder("pepin");
+
+        //formulario SpotifyFormulario
+        reg.select_item_value_day("css_selector","31");
+        reg.select_item_value_year("css_selector","1981");
+        reg.assert_year("css_selector",1981);
+
+        //radio and check de formulario
+        reg.gender_sex();
+
+    }
+
+    @Test(priority = 4,groups = {"sucessTests"})
+    public void spotifyByName(){
+        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //cookie
+        home.accept_cookies();
+        //registration
+        home.registration();
+
+        //formulario
+        reg.email_css_selector("pepe@pepe.com");
+        reg.confirm_email_css_selector("pepe@pepe.com");
+        reg.password_css_selector("pepito");
+        reg.display_name_css_selector("pepin");
+
+        //formulario SpotifyFormulario
+        reg.select_item_value_day("css_selector","31");
+        reg.select_item_value_month("css_selector","Febrero");
+        reg.assert_month("css_selector",2);
+        reg.select_item_value_year("css_selector","1981");
+        reg.assert_year("css_selector",1981);
+        reg.gender_sex();
+
+        //radio and check de formulario
+        reg.accept_terms();
+
+    }
+
+    @Test(priority = 1,groups = {"sucessTests"})
+    public void spotifyTest(){
+        SpotifyHome home =  new SpotifyHome(driver);
+        Utilities util = new Utilities(driver);
+
+        util.maximize_window();
+        home.title_page(true);
+        util.get_current_url("https://www.spotify.com/es/", true);
+        List<WebElement> listas_h1 = util.find_tag_name("h1");
+        util.print_listas(listas_h1,"h1");
+        List<WebElement> listas_h2 = util.find_tag_name("h2");
+        util.print_listas(listas_h2,"h2");
+        List<WebElement> listas_p = util.find_tag_name("p");
+        util.print_listas(listas_p,"p");
+
+    }
+
+    @Test(priority = 2,groups = {"sucessTests"})
+    public void mostrarSpotifyLinks(){
+        SpotifyHome home =  new SpotifyHome(driver);
+        Utilities util = new Utilities(driver);
+
+        util.maximize_window();
+        home.title_page(true);
+        util.get_current_url("https://www.spotify.com/es/", true);
+        List<WebElement>Listas_a = util.find_tag_name("a");
+        util.print_listas(Listas_a,"a");
+
+    }
+
     @AfterMethod
     public void cerrarDriver(){
-        test.driver_close(driver);
+       driver.quit();
     }
 }
