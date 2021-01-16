@@ -1,6 +1,6 @@
 package Xpath_Css;
 
-import WebObject.SpotifyFormulario;
+import WebObjectPage.SpotifyFormulario;
 import hook.ComplementDriver;
 import hook.Utilities;
 import org.junit.Before;
@@ -65,23 +65,22 @@ public class LocalizadoresXpathCssTest {
         util.maximize_window();
 
         //cookie
-        util.click_element_xpath("//*[contains(text(),'Aceptar Cookies')]");
-
+        reg.accept_cookies();
         //formulario
-        util.send_keys_name("email","pepe@pepe.com");
-        util.send_keys_name("confirm","pepe@pepe.com");
-        util.send_keys_name("password", "pepito");
-        util.send_keys_name("displayname","pepin");
+        reg.email_name("pepe@pepe.com");
+        reg.confirm_email_name("pepe@pepe.com");
+
+        reg.password_send_key("pepito");
+        reg.display_name("pepin");
 
         //formulario SpotifyFormulario
-        reg.select_item_value_day("css_selector","input[id='day']","31");
-        reg.select_item_value_month("css_selector","select[id='month']","Febrero");
-        reg.select_item_value_year("css_selector","input[id='year']","1981");
+        reg.select_item_value_day("css_selector","31");
+        reg.select_item_value_month("css_selector","Febrero");
+        reg.select_item_value_year("css_selector","1981");
+        reg.gender_sex();
 
-        //radio and check de formulario
-        util.click_element_xpath("//*[contains(text(),'Hombre')]");
-
-        util.click_element_xpath("//*[contains(text(),'Compartir mis datos de')]");
+        //aceptar terminos
+        reg.accept_terms();
 
     }
 
@@ -96,17 +95,17 @@ public class LocalizadoresXpathCssTest {
         util.click_element_xpath("//*[contains(text(),'Aceptar Cookies')]");
 
         //formulario
-        util.send_keys_xpath("//input[@placeholder='Introduce tu correo electrónico.']", "pepe@pepe.com");
-        util.send_keys_xpath("//input[@placeholder='Vuelve a introducir tu correo electrónico.']","pepe@pepe.com");
-        util.send_keys_xpath("//input[@placeholder='Crea una contraseña.']","pepito");
-        util.send_keys_xpath("//input[@placeholder='Introduce un nombre de perfil.']", "pepin");
+        reg.email_placeholder("pepe@pepe.com");
+        reg.confirm_email_placeholder("pepe@pepe.com");
+        reg.password_placeholder("pepito");
+        reg.displayname_placeholder("pepin");
 
         //formulario SpotifyFormulario
-        reg.select_item_value_day("css_selector","input[id='day']","31");
-        reg.select_item_value_year("css_selector","input[id='year']","1981");
+        reg.select_item_value_day("css_selector","31");
+        reg.select_item_value_year("css_selector","1981");
 
         //radio and check de formulario
-        util.click_element_xpath("//*[contains(text(),'Hombre')]");
+        reg.gender_sex();
 
     }
 
@@ -121,21 +120,19 @@ public class LocalizadoresXpathCssTest {
         util.click_element_xpath("//*[contains(text(),'Aceptar Cookies')]");
 
         //formulario
-        util.send_keys_css_selector("input[id='email']", "pepe@pepe.com");
-        util.send_keys_css_selector("input[id='confirm']", "pepe@pepe.com");
-        util.send_keys_css_selector("input[id='password']", "pepito");
-        util.send_keys_css_selector("input[id='displayname']", "pepin");
+        reg.email_css_selector("pepe@pepe.com");
+        reg.confirm_email_css_selector("pepe@pepe.com");
+        reg.password_css_selector("pepito");
+        reg.display_name_css_selector("pepin");
 
         //formulario SpotifyFormulario
-        reg.select_item_value_day("css_selector","input[id='day']","31");
-        reg.select_item_value_month("css_selector","select[id='month']","Febrero");
-        reg.select_item_value_year("css_selector","input[id='year']","1981");
+        reg.select_item_value_day("css_selector","31");
+        reg.select_item_value_month("css_selector","Febrero");
+        reg.select_item_value_year("css_selector","1981");
+        reg.gender_sex();
 
         //radio and check de formulario
-        util.click_element_xpath("//*[contains(text(),'Hombre')]");
-
-        util.click_element_xpath("//*[contains(text(),'Compartir mis datos de')]");
-
+        reg.accept_terms();
 
     }
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-public class TestSalesforce {
+public class TestSalesForce {
 
     WebDriver driver;
     ComplementDriver test = new ComplementDriver();

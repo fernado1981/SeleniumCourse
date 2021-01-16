@@ -1,7 +1,8 @@
 package dropdow_link_radio;
 
+import WebObjectPage.FacebookHomePage;
 import hook.ComplementDriver;
-import WebObject.FacebookFormRegisterBirtday;
+import WebObjectPage.FacebookFormRegister;
 import hook.Utilities;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -22,13 +23,17 @@ public class DropDownLinkRadioTest {
     @Test(priority = 0,groups = {"sucessTests"})
     public void forgotAccountTest(){
         driver = getDriver("https://www.facebook.com/");
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
+        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
-        //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
 
-        util.click_element_link_text("¿Has olvidado la contraseña?");
-        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook", true);
+        //cookie
+        home.accept_cookies();
+
+        home.forget_passwd();
+        reg.title_page(true);
+
         util.get_current_url("https://www.facebook.com/", false);
 
     }
@@ -36,14 +41,16 @@ public class DropDownLinkRadioTest {
     @Test(priority = 1,groups = {"sucessTests"})
     public void forgotAccountPartialLinkTest(){
         driver = getDriver("https://www.facebook.com/");
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
+        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
+
         //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        home.accept_cookies();
 
-        util.click_element_partial_link_text("¿Has olvidado");
-        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook",true);
-
+        home.forget_passwd_partial_link_text("¿Has olvidado");
+        reg.title_page(true);
     }
 
     @Test(priority = 2,groups = {"sucessTests"})
@@ -60,70 +67,72 @@ public class DropDownLinkRadioTest {
     @Test(priority = 3,groups = {"sucessTests"})
     public void checkBoxAndComboboxTest(){
         driver = getDriver("https://www.facebook.com/");
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
+        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
-        FacebookFormRegisterBirtday reg = new FacebookFormRegisterBirtday(driver);
         util.maximize_window();
 
         //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        home.accept_cookies();
 
         //form open-registration
-        util.click_element_xpath("//a[@data-testid='open-registration-form-button']");
+        home.registration();
 
-        //fill form open-registration name,lastname
-        util.send_keys_xpath("//input[@name='firstname']", "Alan");
-        util.send_keys_xpath("//input[@name='lastname']", "Smith");
+        //fill form name,lastname
+        reg.fill_name_lastname_xpath("Alan", "Smith");
 
-        //fill form open-registration day, month, year (class FacebookFormRegisterBirtday)
-        reg.select_item_value_day("xpath", "//select[@name='birthday_day']", "4");
-        int month = reg.select_item_value_month("xpath", "//select[@name='birthday_month']", "abr");
-        reg.assert_month("xpath","//select[@name='birthday_month']",month);
-        int year = reg.select_item_value_year("xpath", "//select[@name='birthday_year']", "2012");
-        reg.assert_year("xpath","//select[@name='birthday_year']",year);
+        //fill form day, month, year (class FacebookFormRegisterBirtday)
+        reg.select_item_value_day("xpath", "4");
+        int month = reg.select_item_value_month("xpath", "abr");
+        reg.assert_month("xpath",month);
+        int year = reg.select_item_value_year("xpath","2012");
+        reg.assert_year("xpath",year);
 
         //fill form open-registration sex
-        util.click_element_xpath("//input[@name='sex']");
+        reg.click_sex("H");
 
     }
 
     @Test(priority = 4,groups = {"sucessTests"})
     public void birthdateTest() {
         driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegisterBirtday reg = new FacebookFormRegisterBirtday(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
+        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        home.accept_cookies();
 
         //form open-registration
-        util.click_element_xpath("//a[@data-testid='open-registration-form-button']");
+        home.registration();
 
-        //fill form open-registration day, month, year (class FacebookFormRegisterBirtday)
-        reg.select_item_value_day("xpath", "//select[@name='birthday_day']", "20");
-        int month = reg.select_item_value_month("xpath", "//select[@name='birthday_month']", "dic");
-        reg.assert_month("xpath","//select[@name='birthday_month']",month);
-        int year = reg.select_item_value_year("xpath", "//select[@name='birthday_year']", "1990");
-        reg.assert_year("xpath","//select[@name='birthday_year']",year);
+        //fill form day, month, year (class FacebookFormRegisterBirtday)
+        reg.select_item_value_day("xpath", "20");
+        int month = reg.select_item_value_month("xpath", "dic");
+        reg.assert_month("xpath",month);
+        int year = reg.select_item_value_year("xpath", "1990");
+        reg.assert_year("xpath",year);
 
     }
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void comboboxTest(){
         driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegisterBirtday reg = new FacebookFormRegisterBirtday(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
+        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        home.accept_cookies();
 
         //form open-registration
-        util.click_element_xpath("//a[@data-testid='open-registration-form-button']");
+        home.registration();
 
-        //fill form open-registration day, month, year (class FacebookFormRegisterBirtday)
-        int month = reg.select_item_value_month("xpath", "//select[@name='birthday_month']", "dic");
-        reg.assert_month("xpath","//select[@name='birthday_month']",month);
+        //fill form open-registration day, month, year
+        int month = reg.select_item_value_month("xpath",  "dic");
+        reg.assert_month("xpath",month);
 
         //assert size
         util.assert_combo_size_by_name("birthday_month");
@@ -133,56 +142,54 @@ public class DropDownLinkRadioTest {
     @Test(priority = 6,groups = {"sucessTests"})
     public  void completeRegistration(){
         driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegisterBirtday reg = new FacebookFormRegisterBirtday(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
+        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        home.accept_cookies();
 
         //form open-registration
-        util.click_element_xpath("//a[@data-testid='open-registration-form-button']");
+        home.registration();
 
         //fill form open-registration name,lastname,email,password
-        util.send_keys_xpath("//input[@name='firstname']", "Alan");
-        util.send_keys_xpath("//input[@name='lastname']", "Smith");
-        util.send_keys_xpath("//input[@name='reg_email__']","Alan@alan.com");
-        util.send_keys_xpath("//input[@name='reg_passwd__']", "Smith");
+        reg.fill_name_lastname_xpath("Alan", "Smith");
+        reg.email_password_xpath("Alan@alan.com", "Smith");
 
         //fill form open-registration day, month, year (class FacebookFormRegisterBirtday)
-        reg.select_item_value_day("xpath", "//select[@name='birthday_day']", "31");
-        int month = reg.select_item_value_month("xpath", "//select[@name='birthday_month']", "mar");
-        reg.assert_month("xpath","//select[@name='birthday_month']",month);
-        int year = reg.select_item_value_year("xpath", "//select[@name='birthday_year']", "1981");
-        reg.assert_year("xpath","//select[@name='birthday_year']",year);
+        reg.select_item_value_day("xpath",  "31");
+        int month = reg.select_item_value_month("xpath",  "mar");
+        reg.assert_month("xpath",month);
+        int year = reg.select_item_value_year("xpath", "1981");
+        reg.assert_year("xpath",year);
 
     }
 
     @Test(priority = 7,groups = {"sucessTests"})
     public void registrationFacebookTest() throws InterruptedException {
         driver = getDriver("https://www.facebook.com/");
-        FacebookFormRegisterBirtday reg = new FacebookFormRegisterBirtday(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
+        FacebookHomePage home = new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        home.accept_cookies();
 
         //form open-registration
-        util.click_element_xpath("//a[@data-testid='open-registration-form-button']");
+        home.registration();
 
         //fill form open-registration name,lastname,email,password
-        util.send_keys_xpath("//input[@name='firstname']", "Alan");
-        util.send_keys_xpath("//input[@name='lastname']", "Smith");
-        util.send_keys_xpath("//input[@name='reg_email__']","5555555");
-        util.send_keys_xpath("//input[@name='reg_passwd__']", "123456789");
+        reg.fill_name_lastname_xpath("Alan", "Smith");
+        reg.email_password_xpath("5555555", "123456789");
 
-        //fill form open-registration day, month, year (class FacebookFormRegisterBirtday)
-        reg.select_item_value_day("name", "birthday_day", "26");
-        int month = reg.select_item_value_month("name", "birthday_month", "ene");
-        reg.assert_month("name","birthday_month",month);
-        int year = reg.select_item_value_year("name", "birthday_year", "1980");
-        reg.assert_year("name","birthday_year",year);
+        //fill form open-registration day, month, year
+        reg.select_item_value_day("name",  "26");
+        int month = reg.select_item_value_month("name",  "ene");
+        reg.assert_month("name",month);
+        int year = reg.select_item_value_year("name",  "1980");
+        reg.assert_year("name",year);
 
     }
 

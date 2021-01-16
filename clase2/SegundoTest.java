@@ -1,7 +1,8 @@
 package clase2;
 
+import WebObjectPage.FacebookHomePage;
 import hook.ComplementDriver;
-import WebObject.FacebookFormRegisterBirtday;
+import WebObjectPage.FacebookFormRegister;
 import hook.Utilities;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -23,13 +24,19 @@ public class SegundoTest {
     public void forgotAccountTest(){
         WebDriver driver = getDriver("https://www.facebook.com/");
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
-        //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
 
-        util.get_title("Facebook - Entrar o registrarse", true);
-        util.click_element_link_text("¿Has olvidado la contraseña?");
-        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook", true);
+        //cookie
+        home.accept_cookies();
+
+        //home
+        home.title_page(true);
+        home.forget_passwd();
+
+        //register
+        reg.title_page(true);
 
     }
 
@@ -37,13 +44,17 @@ public class SegundoTest {
     public void forgotAccountPartialLinkTest(){
         WebDriver driver = getDriver("https://www.facebook.com/");
         Utilities util = new Utilities(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
-        //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
 
-        util.get_title("Facebook - Entrar o registrarse", true);
-        util.click_element_partial_link_text("olvidado");
-        util.get_title("¿Has olvidado la contraseña? | No puedo entrar | Facebook",true);
+        //cookie
+        home.accept_cookies();
+
+        //home
+        home.title_page(true);
+        home.forget_passwd_partial_link_text("olvidado");
+        reg.title_page(true);
 
     }
 
@@ -71,15 +82,20 @@ public class SegundoTest {
     public void registrationToFacebookTest(){
         WebDriver driver = getDriver("https://www.facebook.com/");
         Utilities util = new Utilities(driver);
-        FacebookFormRegisterBirtday reg = new FacebookFormRegisterBirtday(driver);
+        FacebookHomePage home =new FacebookHomePage(driver);
+        FacebookFormRegister reg = new FacebookFormRegister(driver);
         util.maximize_window();
-        //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
-        util.click_element_link_text("Crear cuenta nueva");
 
-        reg.select_item_value_day("id", "day", "25");
-        int mes = reg.select_item_value_month("id", "month", "ago");
-        reg.assert_month("id","month",mes);
+        //cookie
+        home.accept_cookies();
+
+        //new_count
+        home.create_new_acount();
+
+        //fill day and month
+        reg.select_item_value_day("id","25");
+        int mes = reg.select_item_value_month("id", "ago");
+        reg.assert_month("id",mes);
 
     }
 

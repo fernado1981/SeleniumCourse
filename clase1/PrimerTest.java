@@ -1,5 +1,6 @@
 package clase1;
 
+import WebObjectPage.FacebookHomePage;
 import hook.ComplementDriver;
 import hook.Utilities;
 import org.junit.Before;
@@ -23,12 +24,13 @@ public class PrimerTest {
     @Test(priority = 0,groups = {"sucessTests"})
     public void testing(){
         WebDriver driver = getDriver("https://www.facebook.com");
+        FacebookHomePage home =new FacebookHomePage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
         //cookie
-        util.click_element_xpath("//button[@data-cookiebanner='accept_button']");
+        home.accept_cookies();
+        home.title_page(true);
 
-        util.get_title("Facebook - Entrar o registrarse", true);
         util.get_current_url("https://www.facebook.com/",true);
 
     }
