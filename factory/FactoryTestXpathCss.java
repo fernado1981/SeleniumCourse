@@ -1,6 +1,6 @@
 package factory;
 
-import Xpath_Css.docusignTest;
+import Xpath_Css.DocusignTest;
 import org.testng.annotations.Factory;
 
 public class FactoryTestXpathCss {
@@ -8,7 +8,7 @@ public class FactoryTestXpathCss {
     @Factory
     public Object[] factoryTest4(){
         return new Object[]{
-                new docusignTest(),
+                new DocusignTest(),
         };
     }
 }
