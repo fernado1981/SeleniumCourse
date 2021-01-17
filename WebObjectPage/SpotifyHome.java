@@ -13,6 +13,8 @@ public class SpotifyHome {
     String cookies_xpath="//*[contains(text(), 'Aceptar Cookies')]";
     String title_home="Escuchar lo es todo - Spotify";
     String registration_xpath ="//a[normalize-space()='Registrarse']";
+    String url="https://www.spotify.com";
+    String url_es="https://www.spotify.com/es/";
 
     public SpotifyHome(WebDriver remoteDriver) {
         driver = remoteDriver;
@@ -24,12 +26,19 @@ public class SpotifyHome {
         util.click_element_xpath(cookies_xpath);
     }
 
-    public void title_page(boolean equal){
-        util.get_title(title_home, equal);
+    public void title_page(boolean equal){ util.get_title(title_home, equal); }
+
+    public void get_url(boolean value){
+        util.get_current_url(url, value);
+    }
+
+    public void get_url_es(boolean value){
+        util.get_current_url(url_es, value);
     }
 
     public void registration(){
         util.click_element_xpath(registration_xpath);
     }
+
 
 }

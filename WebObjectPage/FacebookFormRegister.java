@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FacebookFormRegister {
@@ -17,7 +18,6 @@ public class FacebookFormRegister {
     WebDriver driver;
     WebDriverWait wait;
     Utilities util;
-    String title;
 
     //xpath
     String birthday_day_xpath = "//select[@name='birthday_day']";
@@ -29,12 +29,6 @@ public class FacebookFormRegister {
     String passwd_xpath="//input[@name='reg_passwd__']";
     String sex_V_xpath="//input[@name='sex' and @value='2']";
     String sex_H_xpath="//input[@name='sex' and @value='1']";
-    //name
-    String firstname_name = "firstname";
-    String lastname_name = "lastname";
-    String email_name = "reg_email__";
-    String email_confirmation_name = "reg_email_confirmation__";
-    String password_name ="password_step_input";
     String birthday_day_name = "birthday_day";
     String birthday_month_name = "birthday_month";
     String birthday_year_name = "birthday_year";
@@ -46,7 +40,8 @@ public class FacebookFormRegister {
     String birthday_day_css_selector = "//select[name='birthday_day']";
     String birthday_month_xpath_css_selector = "//select[name='birthday_month']";
     String birthday_year_xpath_css_selector = "//select[name='birthday_year']";
-
+    String url="https://www.facebook.com/login/";
+    String title = "¿Has olvidado la contraseña? | No puedo entrar | Facebook";
 
 
 
@@ -54,11 +49,14 @@ public class FacebookFormRegister {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);
-        title = "¿Has olvidado la contraseña? | No puedo entrar | Facebook";
     }
 
     public void title_page(boolean equal){
         util.get_title(title, equal);
+    }
+
+    public void get_url(boolean value){
+        util.get_current_url(url, value);
     }
 
     public void fill_name_lastname_xpath(String name,String Lastname){
@@ -70,17 +68,6 @@ public class FacebookFormRegister {
         util.send_keys_xpath(email_xpath, email);
         util.send_keys_xpath(passwd_xpath, password);
     }
-
-    public void fill_name_lastname_name(String name,String Lastname){
-        util.send_keys_xpath(firstname_name, name);
-        util.send_keys_xpath(lastname_name, Lastname);
-    }
-
-    public void email_password_name(String email, String password){
-        util.send_keys_name(email_name, email);
-        util.send_keys_name(password_name, password);
-    }
-
 
     public void click_sex(String sex) {
         if(sex.equalsIgnoreCase("V")) {
@@ -255,5 +242,23 @@ public class FacebookFormRegister {
             int valueyear = Integer.parseInt(valuesyear.getAttribute("value"));
             Assert.assertEquals(year, valueyear);
         }
+    }
+
+    public void assert_combo_size_by_name(String name){
+        WebElement meses = driver.findElement(By.name(name));
+        Select combo = new Select(meses);
+
+        List<WebElement> options=combo.getOptions();
+        Assert.assertNotEquals(0, options.size());
+
+        boolean search = false;
+        for (WebElement opt:options){
+            System.out.println(opt.getText());
+            if(opt.getText().contentEquals("ene")){
+                search=true;
+                break;
+            }
+        }
+        Assert.assertTrue(search);
     }
 }

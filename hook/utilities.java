@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
@@ -15,7 +14,6 @@ public class Utilities {
 
     WebDriver driver;
     WebDriverWait wait;
-    String cookie_xpath_google= "//div[@aria-label='Aceptar el uso de cookies y otros datos para las finalidades descritas']";
 
     public Utilities(WebDriver remoteDriver) {
         driver = remoteDriver;
@@ -40,13 +38,6 @@ public class Utilities {
         }else{
             Assert.assertNotEquals(url, driver.getCurrentUrl());
         }
-    }
-
-    //cookie_Google
-    public void accept_cookies_google(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(),'Antes de continuar')]")));
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(cookie_xpath_google))));
-        driver.findElement(By.xpath(cookie_xpath_google)).click();
     }
 
     //send_keys (name,id,xpath)
@@ -161,24 +152,5 @@ public class Utilities {
         if(totalMsgError == 9){
             Assert.assertEquals(totalMsgError,9);
         }
-
-    }
-
-    public void assert_combo_size_by_name(String name){
-        WebElement meses = driver.findElement(By.name(name));
-        Select combo = new Select(meses);
-
-        List<WebElement> options=combo.getOptions();
-        Assert.assertNotEquals(0, options.size());
-
-        boolean search = false;
-        for (WebElement opt:options){
-            System.out.println(opt.getText());
-            if(opt.getText().contentEquals("ene")){
-                search=true;
-                break;
-            }
-        }
-        Assert.assertTrue(search);
     }
 }

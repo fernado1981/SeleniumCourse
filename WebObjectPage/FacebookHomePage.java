@@ -15,6 +15,7 @@ public class FacebookHomePage {
     String title_home="Facebook - Entrar o registrarse";
     String new_count_link_text ="Crear cuenta nueva";
     String registration_xpath ="//a[@data-testid='open-registration-form-button']";
+    String url="https://www.facebook.com/";
 
     public FacebookHomePage(WebDriver remoteDriver) {
         driver = remoteDriver;
@@ -35,11 +36,12 @@ public class FacebookHomePage {
     public void title_page(boolean equal){
         util.get_title(title_home, equal);
     }
-
+    public void get_url(boolean value){
+        util.get_current_url(url, value);
+    }
     public void create_new_acount(){
         util.click_element_link_text(new_count_link_text);
     }
-
     public void registration(){
         util.click_element_xpath(registration_xpath);
     }

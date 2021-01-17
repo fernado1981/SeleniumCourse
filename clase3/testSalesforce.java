@@ -1,5 +1,8 @@
 package clase3;
 
+import WebObjectPage.SalesForceLoginPage;
+import WebObjectPage.SalesForceOktaFormPage;
+import WebObjectPage.SalesForceUseCustomDomainPage;
 import hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,73 +26,90 @@ public class TestSalesForce {
 
     @Test(priority = 0, groups = {"sucessTests"})
     public void validateSalesforceLogoTest(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
-        util.find_id_search_tag("logo","img");
-        util.find_id_search_attribute("logo","Salesforce","alt");
+        //login page
+        SalesForceLogin.search_logo_img("img");
+        SalesForceLogin.search_logo_img("alt");
     }
 
-    @Test(priority = 1, enabled = false, groups = {"sucessTests"})
+    @Test(priority = 1, groups = {"sucessTests"})
     public void remenberMelsSelected(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
         Utilities util = new Utilities(driver);
-        //WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
-
         util.maximize_window();
 
-        util.get_current_url("https://login.salesforce.com/?locale=eu", true);
-        util.click_element_xpath("//input[@id='rememberUn']");
+        //login page
+        SalesForceLogin.get_url(true);
+        SalesForceLogin.remenber();
 
     }
 
     @Test(priority = 2, groups = {"sucessTests"})
     public void FooterIsValid(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
-        util.find_xpath_search_text("//*[contains(text(),'Reservados todos los derechos')]","© 2021 salesforce.com, inc. Reservados todos los derechos. | Privacidad","Reservados todos los derechos");
+        //login page
+        SalesForceLogin.search_text("txtfooter");
 
     }
 
     @Test(priority = 3, groups = {"sucessTests"})
     public void LoginFailureTest(){
+        SalesForceLoginPage login = new SalesForceLoginPage(driver);
         Utilities util = new Utilities(driver);
-        //WebDriver driver = getDriver("https://login.salesforce.com/?locale=eu");
         util.maximize_window();
 
-        util.send_keys_xpath("//input[@id='username']","test@test.com");
-        util.send_keys_xpath("//input[@id='password']","123466");
-        util.click_element_xpath("//input[@id='Login']");
-
-        util.find_xpath_search_text("//div[@id='error']","El administrador del sistema ha desactivado su acceso a salesforce.com. Póngase en contacto con su administrador si desea obtener más información.","null");
-
+        //login page
+        login.fill_username("test@test.com");
+        login.fill_password("123466");
+        login.login_btn_tap();
+        login.search_text("txtdesactivate");
    }
 
     @Test(priority = 2,groups = {"sucessTests"})
     public void customSalesforceLinkA(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
+        SalesForceOktaFormPage okta = new SalesForceOktaFormPage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
-        util.get_current_url("https://login.salesforce.com/", true);
-        util.click_element_id("mydomainLink");
-        util.send_keys_name("mydomain","as");
-        util.get_current_url("https://login.salesforce.com/", true);
-        util.click_name("Continue");
-        util.get_current_url("https://american-securities.okta.com/app/salesforce/ko9cqogcCYKWOFOXOOSX/sso/saml", true);
 
-        util.send_keys_xpath("//input[@name='username']","testing@testing.com");
-        util.send_keys_xpath("//input[@name='password']","holamundo!");
+        //loginpage
+        SalesForceLogin.get_url(true);
+        SalesForceLogin.use_custom_domain_tap();
 
-        util.click_element_xpath("//input[@type='submit']");
+        //customDomainPage
+        customDomain.get_url(true);
+        customDomain.insert_my_domain("as");
+        customDomain.continue_btn_tap();
+
+        //oktaformpage
+        okta.get_url(true);
+        okta.fill_username("testing@testing.com");
+        okta.fill_password("holamundo!");
+        okta.sign_in();
 
     }
 
     @Test(priority = 2,groups = {"sucessTests"})
     public void customSalesforceLinkB(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
-        util.click_element_link_text("Utilizar dominio personalizado");
-        util.send_keys_xpath("//input[@id='mydomain']","as");
+        //loginpage
+        SalesForceLogin.get_url(true);
+        SalesForceLogin.use_custom_domain_tap();
+
+        //customDomainPage
+        customDomain.get_url(true);
+        customDomain.insert_my_domain("as");
 
     }
 

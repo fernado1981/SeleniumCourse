@@ -1,6 +1,6 @@
 package clase3;
 
-import WebObjectPage.SpotifyFormulario;
+import WebObjectPage.SpotifyForm;
 import WebObjectPage.SpotifyHome;
 import hook.Utilities;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,229 +28,226 @@ public class TestSpotify {
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void verifySpotifyTitle(){
-        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
+        SpotifyHome.accept_cookies();
         //title
-        home.title_page(true);
+        SpotifyHome.title_page(true);
 
     }
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void verifySignupUrl(){
-        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg =  new SpotifyForm(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
-
-        //current_url
-        util.get_current_url("https://www.spotify.com/es/signup/", true);
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+        //SpotifyReg
+        SpotifyReg.get_url(true);
 
     }
 
     @Test(priority = 2, enabled = false, groups = {"failTests"})
     public void invalidEmailTest( ){
-        SpotifyHome home =  new SpotifyHome(driver);
-        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
 
-        //fill email,confirm email
-        reg.email_name("test.com");
-        reg.confirm_email_name("test.com");
+        //SpotifyReg
+        SpotifyReg.email_name("test.com");
+        SpotifyReg.confirm_email_name("test.com");
 
-        //search text error email
-        reg.text_email_error("Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com");
-
-    }
-
-    @Test(priority = 3,enabled = true, groups = {"failTests"})
-    public void validateExistingEmail(){
-        SpotifyHome home =  new SpotifyHome(driver);
-        SpotifyFormulario reg = new SpotifyFormulario(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
-        //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
-
-        //fill email,confirm email
-        reg.email_name("test@test.com");
-        reg.confirm_email_name("test@test.com");
-
-        //search text error email duplicate
-        reg.text_email_error_duplicate("Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
-
-    }
-
-    @Test(priority = 4,enabled = true, groups = {"failTests"})
-    public void checkEqualEmailsError(){
-        SpotifyHome home =  new SpotifyHome(driver);
-        SpotifyFormulario reg = new SpotifyFormulario(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
-        //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
-        //fill email,confirm email
-        reg.email_name("test999@test.com");
-        reg.confirm_email_name("hola@hola.com");
-        //click pass
-        reg.password_click();
         //assert msn error
-        reg.text_email_error_duplicate("Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
-        reg.text_email_error_not_equal("Las direcciones de correo electrónico no coinciden.");
+        SpotifyReg.text_email_error("Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com");
+
+    }
+
+    @Test(priority = 3,enabled = false, groups = {"failTests"})
+    public void validateExistingEmail(){
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //cookie
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+
+        //SpotifyReg
+        SpotifyReg.email_name("test@test.com");
+        SpotifyReg.confirm_email_name("test@test.com");
+
+        //assert msn error
+        SpotifyReg.text_email_error_duplicate("Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
+
+    }
+
+    @Test(priority = 4,enabled = false, groups = {"failTests"})
+    public void checkEqualEmailsError(){
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //cookie
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+
+        //SpotifyReg
+        SpotifyReg.email_name("test999@test.com");
+        SpotifyReg.confirm_email_name("hola@hola.com");
+        SpotifyReg.password_click();
+
+        //assert msn error
+        SpotifyReg.text_email_error_duplicate("Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
+        SpotifyReg.text_email_error_not_equal("Las direcciones de correo electrónico no coinciden.");
 
     }
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void checkEqualErrorMessages(){
-        SpotifyHome home =  new SpotifyHome(driver);
-        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
-        //click submit
-        reg.submit();
-        //find errors
-        reg.total_msg_error_xpath();
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+        //SpotifyReg
+        SpotifyReg.submit();
+        //assert msn error
+        SpotifyReg.total_msg_error_xpath();
 
     }
 
-    @Test
+    @Test(priority = 6,groups = {"sucessTests"})
     @Parameters({"specificTag"})
     public void spotifytags(@Optional("h1") String tagName){
-        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
-
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+        //SpotifyReg
         List<WebElement>Listas = util.find_tag_name(tagName);
         util.print_listas(Listas,tagName);
     }
 
-    @Test(priority = 2,groups = {"sucessTests"})
+    @Test(priority = 7,groups = {"sucessTests"})
     public void spotifyByNameTest(){
-        SpotifyHome home =  new SpotifyHome(driver);
-        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
         Utilities util = new Utilities(driver);
 
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
 
-        //formulario
-        reg.email_name("pepe@pepe.com");
-        reg.confirm_email_name("pepe@pepe.com");
+        //SpotifyReg
+        SpotifyReg.email_name("pepe@pepe.com");
+        SpotifyReg.confirm_email_name("pepe@pepe.com");
+        SpotifyReg.password_send_key("pepito");
+        SpotifyReg.display_name("pepin");
 
-        reg.password_send_key("pepito");
-        reg.display_name("pepin");
-
-        //formulario SpotifyFormulario
-        reg.select_item_value_day("css_selector","31");
-        reg.select_item_value_month("css_selector","Febrero");
-        reg.select_item_value_year("css_selector","1981");
-        reg.gender_sex();
+        SpotifyReg.select_item_value_day("css_selector","31");
+        SpotifyReg.select_item_value_month("css_selector","Febrero");
+        SpotifyReg.select_item_value_year("css_selector","1981");
+        SpotifyReg.gender_sex();
 
         //aceptar terminos
-        reg.accept_terms();
+        SpotifyReg.accept_terms();
 
     }
 
-    @Test(priority = 3,groups = {"sucessTests"})
+    @Test(priority = 8,groups = {"sucessTests"})
     public void spotifyByPlaceHolder(){
-        SpotifyHome home =  new SpotifyHome(driver);
-        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
 
-        //formulario
-        reg.email_placeholder("pepe@pepe.com");
-        reg.confirm_email_placeholder("pepe@pepe.com");
-        reg.password_placeholder("pepito");
-        reg.displayname_placeholder("pepin");
+        //SpotifyReg
+        SpotifyReg.email_placeholder("pepe@pepe.com");
+        SpotifyReg.confirm_email_placeholder("pepe@pepe.com");
+        SpotifyReg.password_placeholder("pepito");
+        SpotifyReg.displayname_placeholder("pepin");
 
-        //formulario SpotifyFormulario
-        reg.select_item_value_day("css_selector","31");
-        reg.select_item_value_year("css_selector","1981");
-        reg.assert_year("css_selector",1981);
+        SpotifyReg.select_item_value_day("css_selector","31");
+        SpotifyReg.select_item_value_year("css_selector","1981");
+        SpotifyReg.assert_year("css_selector",1981);
 
-        //radio and check de formulario
-        reg.gender_sex();
+        SpotifyReg.gender_sex();
 
     }
 
-    @Test(priority = 4,groups = {"sucessTests"})
+    @Test(priority = 9,groups = {"sucessTests"})
     public void spotifyByName(){
-        SpotifyHome home =  new SpotifyHome(driver);
-        SpotifyFormulario reg = new SpotifyFormulario(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
         Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //cookie
-        home.accept_cookies();
-        //registration
-        home.registration();
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
 
-        //formulario
-        reg.email_css_selector("pepe@pepe.com");
-        reg.confirm_email_css_selector("pepe@pepe.com");
-        reg.password_css_selector("pepito");
-        reg.display_name_css_selector("pepin");
+        //SpotifyReg
+        SpotifyReg.email_css_selector("pepe@pepe.com");
+        SpotifyReg.confirm_email_css_selector("pepe@pepe.com");
+        SpotifyReg.password_css_selector("pepito");
+        SpotifyReg.display_name_css_selector("pepin");
 
-        //formulario SpotifyFormulario
-        reg.select_item_value_day("css_selector","31");
-        reg.select_item_value_month("css_selector","Febrero");
-        reg.assert_month("css_selector",2);
-        reg.select_item_value_year("css_selector","1981");
-        reg.assert_year("css_selector",1981);
-        reg.gender_sex();
+        SpotifyReg.select_item_value_day("css_selector","31");
+        SpotifyReg.select_item_value_month("css_selector","Febrero");
+        SpotifyReg.assert_month("css_selector",2);
+        SpotifyReg.select_item_value_year("css_selector","1981");
+        SpotifyReg.assert_year("css_selector",1981);
+        SpotifyReg.gender_sex();
 
-        //radio and check de formulario
-        reg.accept_terms();
+        //aceptar terminos
+        SpotifyReg.accept_terms();
 
     }
 
-    @Test(priority = 1,groups = {"sucessTests"})
+    @Test(priority = 10,groups = {"sucessTests"})
     public void spotifyTest(){
-        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
         Utilities util = new Utilities(driver);
-
         util.maximize_window();
-        home.title_page(true);
-        util.get_current_url("https://www.spotify.com/es/", true);
+
+        SpotifyHome.title_page(true);
+        SpotifyHome.get_url_es(true);
+
         List<WebElement> listas_h1 = util.find_tag_name("h1");
         util.print_listas(listas_h1,"h1");
         List<WebElement> listas_h2 = util.find_tag_name("h2");
@@ -260,14 +257,15 @@ public class TestSpotify {
 
     }
 
-    @Test(priority = 2,groups = {"sucessTests"})
+    @Test(priority = 11,groups = {"sucessTests"})
     public void mostrarSpotifyLinks(){
-        SpotifyHome home =  new SpotifyHome(driver);
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
         Utilities util = new Utilities(driver);
-
         util.maximize_window();
-        home.title_page(true);
-        util.get_current_url("https://www.spotify.com/es/", true);
+
+        SpotifyHome.title_page(true);
+        SpotifyHome.get_url_es(true);
+
         List<WebElement>Listas_a = util.find_tag_name("a");
         util.print_listas(Listas_a,"a");
 

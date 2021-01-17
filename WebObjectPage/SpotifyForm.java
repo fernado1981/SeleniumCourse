@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SpotifyFormulario {
+public class SpotifyForm {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -49,9 +49,10 @@ public class SpotifyFormulario {
 
     String gender_sex_h ="//*[contains(text(),'Hombre')]";
     String accept_term="//*[contains(text(),'Compartir mis datos de')]";
+    String url="https://www.spotify.com/es/signup/";
 
 
-    public SpotifyFormulario(WebDriver remoteDriver) {
+    public SpotifyForm(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);
@@ -59,6 +60,9 @@ public class SpotifyFormulario {
 
     public void accept_cookies(){
         util.click_element_xpath(cookies_xpath);
+    }
+    public void get_url(boolean value){
+        util.get_current_url(url, value);
     }
 
     public void email_name(String email) {
@@ -145,7 +149,6 @@ public class SpotifyFormulario {
 
             Assert.assertEquals(option_value_dia, values_dia.getAttribute("value"));
         }else if(tag.equalsIgnoreCase("xpath")){
-            System.out.println(option_value_dia);
             WebElement values_dia = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath_day)));
             values_dia.sendKeys(option_value_dia);
 
