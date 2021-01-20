@@ -1,0 +1,13 @@
+<suite name="Xpath_Css" verbose="1">
+    <test name="Ejercicios Testng">
+        <groups>
+            <run>
+                <include name="sucessTests"/>
+                <include name="failTests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Xpath_Css.docusignTest"></class>
+        </classes>
+    </test>
+</suite>

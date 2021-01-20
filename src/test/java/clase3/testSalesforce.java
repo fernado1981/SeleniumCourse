@@ -1,68 +1,165 @@
 package clase3;
 
-import org.openqa.selenium.By;
+import WebObjectPage.SalesForceLoginPage;
+import WebObjectPage.SalesForceOktaFormPage;
+import WebObjectPage.SalesForceUseCustomDomainPage;
+import com.github.javafaker.Faker;
+import hook.Utilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class testSalesforce {
+public class TestSalesForce {
 
     public WebDriver driver;
-    public static final String SALEFORCE_URL= "https://login.salesforce.com/";
-    public static final String SALEFORCE_URL_eu= "https://login.salesforce.com/?locale=eu";
-    private String url;
+
+    public static Faker faker = new Faker();
 
     @Test(groups = {"sucessTests","failTests"})
 
+
     @BeforeMethod
     public void setup(){
-        this.url = SALEFORCE_URL;
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
-        driver.get(url);
+        driver.get("https://login.salesforce.com/");
     }
 
     @Test(priority = 0, groups = {"sucessTests"})
     public void validateSalesforceLogoTest(){
-        WebElement logo = driver.findElement(By.id("logo"));
-        String tagName = logo.getTagName();
-        Assert.assertEquals("img", tagName);
-        String attr = logo.getAttribute("alt");
-        Assert.assertEquals("Salesforce", attr);
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //login page
+        SalesForceLogin.search_logo_img("img");
+        SalesForceLogin.search_logo_img("alt");
     }
 
-    @Test(priority = 4, enabled=false, groups = {"failTests"})
+    @Test(priority = 1, groups = {"sucessTests"})
     public void remenberMelsSelected(){
-        driver.get(SALEFORCE_URL_eu);
-        String urlactual=driver.getCurrentUrl();
-        Assert.assertEquals("https://login.salesforce.com/?locale=eu",urlactual);
-        WebElement remenber= driver.findElement(By.xpath("//input[@id='rememberUn']"));
-        remenber.click();
-        Assert.assertTrue(remenber.isSelected());
-}
-    @Test(priority = 2, groups = {"succesTests"})
-    public void FooterIsValid(){
-       WebElement footerText = driver.findElement(By.xpath("//*[contains(text(),'Reservados todos los derechos')]"));
-       Assert.assertEquals(footerText.getText(),"© 2021 salesforce.com, inc. Reservados todos los derechos. | Privacidad");
-       Assert.assertTrue(footerText.getText().contains("Reservados todos los derechos"));
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //login page
+        SalesForceLogin.get_url(true);
+        SalesForceLogin.remenber();
+
     }
-    @Test(priority = 3, groups = {"succesTests"})
-    public void LoginFailureTest() throws InterruptedException {
-        driver.get(SALEFORCE_URL_eu);
-        driver.findElement(By.xpath("//input[@id='username']")).sendKeys("test@test.com");
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123466");
-        driver.findElement(By.xpath("//input[@id='Login']")).click();
-        Thread.sleep(3000);
-        String testError = driver.findElement(By.xpath("//div[@id='error']")).getText();
-        Assert.assertEquals(testError,"Your access to salesforce.com has been disabled by your system administrator. Please contact your Administrator for more information.");
+
+    @Test(priority = 2, groups = {"sucessTests"})
+    public void FooterIsValid(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //login page
+        SalesForceLogin.search_text("txtfooter");
+
+    }
+
+    @Test(priority = 3, groups = {"sucessTests"})
+    public void LoginFailureTest(){
+        SalesForceLoginPage login = new SalesForceLoginPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //login page
+        login.fill_username("test@test.com");
+        login.fill_password("123466");
+        login.login_btn_tap();
+        login.search_text("txtdesactivate");
+   }
+
+    @Test(priority = 3, groups = {"sucessTests"})
+    public void LoginFailurefakeTest(){
+        SalesForceLoginPage login = new SalesForceLoginPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //login page
+        String email=faker.internet().emailAddress();
+        login.fill_username(email);
+        String pass = faker.internet().domainName();
+        login.fill_password(pass);
+        login.login_btn_tap();
+        login.search_text("txtdesactivatefake");
+    }
+
+    @Test(priority = 2,groups = {"sucessTests"})
+    public void customSalesforceLink(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
+        SalesForceOktaFormPage okta = new SalesForceOktaFormPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //loginpage
+        SalesForceLogin.get_url(true);
+        SalesForceLogin.use_custom_domain_tap();
+
+        //customDomainPage
+        customDomain.get_url(true);
+        customDomain.insert_my_domain("as");
+        customDomain.continue_btn_tap();
+
+        //oktaformpage
+        okta.get_url(true);
+        okta.fill_username("testing@testing.com");
+        okta.fill_password("holamundo!");
+        okta.sign_in();
+
+    }
+
+    @Test(priority = 2,groups = {"sucessTests"})
+    public void customSalesforceLinkFake(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
+        SalesForceOktaFormPage okta = new SalesForceOktaFormPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //loginpage
+        SalesForceLogin.get_url(true);
+        SalesForceLogin.use_custom_domain_tap();
+
+        //customDomainPage
+        customDomain.get_url(true);
+        customDomain.insert_my_domain("as");
+        customDomain.continue_btn_tap();
+
+        //oktaformpage
+        okta.get_url(true);
+        String email = faker.internet().emailAddress();
+        okta.fill_username(email);
+        String pass = faker.internet().password();
+        okta.fill_password(pass);
+        okta.sign_in();
+
+    }
+
+    @Test(priority = 2,groups = {"sucessTests"})
+    public void customSalesforceLinkB(){
+        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
+        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //loginpage
+        SalesForceLogin.get_url(true);
+        SalesForceLogin.use_custom_domain_tap();
+
+        //customDomainPage
+        customDomain.get_url(true);
+        customDomain.insert_my_domain("as");
+
     }
 
     @AfterMethod
     public void cerrarDriver(){
-        driver.close();
+        driver.quit();
     }
 }
