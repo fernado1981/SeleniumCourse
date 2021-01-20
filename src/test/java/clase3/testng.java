@@ -2,7 +2,7 @@ package clase3;
 
 import org.testng.annotations.*;
 
-public class testng {
+public class Testng {
 
 
     @BeforeClass
