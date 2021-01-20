@@ -1,7 +1,0 @@
-#ejercicios:
-get_title
-get_current_url
-send_keys
-select_item
-click_element_link_text
-click_element_partial_link_text

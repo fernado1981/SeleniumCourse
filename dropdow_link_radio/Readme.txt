@@ -1,1 +1,0 @@
-#consta de ejercicios con Xpath, dropdown link y elementos tipo radio button y checkbutton

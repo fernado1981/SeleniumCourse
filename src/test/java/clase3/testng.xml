@@ -1,0 +1,15 @@
+<suite name="Clase3" verbose="1">
+    <test name="Ejercicios Testng">
+        <parameter name="username" value="user@qa.com"></parameter>
+        <parameter name="password" value="holamundo123"></parameter>
+        <groups>
+            <run>
+                <include name="sucessTests"/>
+                <include name="failTests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="clase3.Testng"></class>
+        </classes>
+    </test>
+</suite>
