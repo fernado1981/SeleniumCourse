@@ -13,7 +13,7 @@ import org.testng.annotations.*;
 import java.util.List;
 
 
-public class TestSpotify {
+public class SpotifyTest {
 
     public WebDriver driver;
 

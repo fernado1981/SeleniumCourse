@@ -3,7 +3,6 @@ package clase2;
 import WebObjectPage.FacebookHomePage;
 import WebObjectPage.FacebookFormRegister;
 import hook.Utilities;
-import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -14,7 +13,6 @@ public class FacebookTest {
 
     public WebDriver driver;
 
-    public static Faker faker = new Faker();
 
     @Test(groups = {"sucessTests","failTests"})
 
