@@ -153,4 +153,12 @@ public class Utilities {
             Assert.assertEquals(totalMsgError,9);
         }
     }
+
+    public String find_erromsg_xpath(String tagxpath){
+        WebElement error = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(tagxpath)));
+        return error.getText();
+    }
+
+
+
 }
