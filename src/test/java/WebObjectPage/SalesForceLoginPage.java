@@ -23,6 +23,7 @@ public class SalesForceLoginPage {
     String desactivate_text_xpath="//div[@id='error']";
     String desactivate_text_contain="null";
     String desactivate_text_expected="El administrador del sistema ha desactivado su acceso a salesforce.com. Póngase en contacto con su administrador si desea obtener más información.";
+    String desactivate_text_contain_fake="Compruebe su nombre de usuario y contraseña. Si sigue sin poder iniciar sesión, póngase en contacto con su administrador de Salesforce.";
     String custom_domain_id_link="mydomainLink";
 
 
@@ -52,6 +53,8 @@ public class SalesForceLoginPage {
             util.find_xpath_search_text(footer_text_xpath, footer_text_expected, footer_text_contain);
         }else if(value.equalsIgnoreCase("txtdesactivate")){
             util.find_xpath_search_text(desactivate_text_xpath, desactivate_text_expected, desactivate_text_contain);
+        }else if(value.equalsIgnoreCase("txtdesactivatefake")){
+            util.find_xpath_search_text(desactivate_text_xpath, desactivate_text_contain_fake, desactivate_text_contain);
         }
     }
 

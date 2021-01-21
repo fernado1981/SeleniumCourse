@@ -2,6 +2,7 @@ package dropdow_link_radio;
 
 import WebObjectPage.FacebookHomePage;
 import WebObjectPage.FacebookFormRegister;
+import com.github.javafaker.Faker;
 import hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +13,8 @@ import org.testng.annotations.Test;
 public class FacebookTest {
 
     public WebDriver driver;
+
+    public static Faker faker = new Faker();
 
     @Test(groups = {"sucessTests","failTests"})
 
@@ -68,6 +71,34 @@ public class FacebookTest {
 
         //fill form FacebookReg
         FacebookReg.fill_name_lastname_xpath("Alan", "Smith");
+
+        FacebookReg.select_item_value_day("xpath", "4");
+        int month = FacebookReg.select_item_value_month("xpath", "abr");
+        FacebookReg.assert_month("xpath",month);
+        int year = FacebookReg.select_item_value_year("xpath","2012");
+        FacebookReg.assert_year("xpath",year);
+
+        FacebookReg.click_sex("H");
+
+    }
+
+    @Test(priority = 3,groups = {"sucessTests"})
+    public void checkBoxAndComboboxFakeTest(){
+        Utilities util = new Utilities(driver);
+        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
+        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
+        util.maximize_window();
+
+        //cookie
+        FacebookHome.accept_cookies();
+
+        //facebookHome open-registration
+        FacebookHome.registration();
+
+        //fill form FacebookReg
+        String name = faker.name().firstName();
+        String lastname=faker.name().lastName();
+        FacebookReg.fill_name_lastname_xpath(name, lastname);
 
         FacebookReg.select_item_value_day("xpath", "4");
         int month = FacebookReg.select_item_value_month("xpath", "abr");
@@ -148,6 +179,35 @@ public class FacebookTest {
 
     }
 
+    @Test(priority = 6,groups = {"sucessTests"})
+    public  void completeRegistrationFake(){
+        Utilities util = new Utilities(driver);
+        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
+        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
+        util.maximize_window();
+
+        //cookie
+        FacebookHome.accept_cookies();
+
+        //facebookHome
+        FacebookHome.registration();
+
+        //fill form facebookReg
+        String firstname=faker.name().firstName();
+        String lastname = faker.name().lastName();
+        FacebookReg.fill_name_lastname_xpath(firstname, lastname);
+        String email = faker.internet().emailAddress();
+        String pass = faker.internet().password();
+        FacebookReg.email_password_xpath(email, pass);
+
+        FacebookReg.select_item_value_day("xpath",  "31");
+        int month = FacebookReg.select_item_value_month("xpath",  "mar");
+        FacebookReg.assert_month("xpath",month);
+        int year = FacebookReg.select_item_value_year("xpath", "1981");
+        FacebookReg.assert_year("xpath",year);
+
+    }
+
     @Test(priority = 7,groups = {"sucessTests"})
     public void registrationFacebookTest(){
         Utilities util = new Utilities(driver);
@@ -164,6 +224,34 @@ public class FacebookTest {
         //fill form facebookReg
         FacebookReg.fill_name_lastname_xpath("Alan", "Smith");
         FacebookReg.email_password_xpath("5555555", "123456789");
+
+        FacebookReg.select_item_value_day("name",  "26");
+        int month = FacebookReg.select_item_value_month("name",  "ene");
+        FacebookReg.assert_month("name",month);
+        int year = FacebookReg.select_item_value_year("name",  "1980");
+        FacebookReg.assert_year("name",year);
+
+    }
+
+    @Test(priority = 7,groups = {"sucessTests"})
+    public void registrationFacebookFakeTest(){
+        Utilities util = new Utilities(driver);
+        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
+        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
+        util.maximize_window();
+
+        //cookie
+        FacebookHome.accept_cookies();
+
+        //facebookHome
+        FacebookHome.registration();
+
+        //fill form facebookReg
+        String name = faker.name().firstName();
+        String lastname = faker.name().lastName();
+        FacebookReg.fill_name_lastname_xpath(name, lastname);
+        String pass = faker.internet().password();
+        FacebookReg.email_password_xpath("5555555", pass);
 
         FacebookReg.select_item_value_day("name",  "26");
         int month = FacebookReg.select_item_value_month("name",  "ene");

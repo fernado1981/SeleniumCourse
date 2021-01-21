@@ -2,6 +2,7 @@ package Xpath_Css;
 
 import WebObjectPage.DocusingForm;
 import hook.Utilities;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -11,6 +12,8 @@ import org.testng.annotations.Test;
 public class DocusignTest {
 
     public WebDriver driver;
+
+    public static Faker faker = new Faker();
 
     @Test(groups = {"sucessTests","failTests"})
 
@@ -37,6 +40,34 @@ public class DocusignTest {
         Docusing.fill_email("pepe@pepe.com");
         Docusing.fill_phone("654897237");
         Docusing.fill_title_job("fontanero");
+        Docusing.fill_ds_industry("name","Other");
+
+    }
+
+    @Test(priority = 0,groups = {"sucessTests"})
+    public void completeDocusignRegistrationFormFake(){
+        DocusingForm Docusing = new DocusingForm(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //cookie
+        Docusing.accept_cookies();
+
+        //formulario
+        String name=faker.name().firstName();
+        Docusing.fill_firstname(name);
+
+        String lastname=faker.name().lastName();
+        Docusing.fill_lastname(lastname);
+
+        String mail = faker.internet().emailAddress();
+        Docusing.fill_email(mail);
+
+        String phone=faker.phoneNumber().cellPhone();
+        Docusing.fill_phone(phone);
+
+        String job = faker.job().title();
+        Docusing.fill_title_job(job);
         Docusing.fill_ds_industry("name","Other");
 
     }

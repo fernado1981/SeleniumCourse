@@ -3,6 +3,7 @@ package clase3;
 import WebObjectPage.SpotifyForm;
 import WebObjectPage.SpotifyHome;
 import hook.Utilities;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,8 @@ import java.util.List;
 public class TestSpotify {
 
     public WebDriver driver;
+
+    public static Faker faker = new Faker();
 
     @Test(groups = {"sucessTests","failTests"})
 
@@ -94,6 +97,30 @@ public class TestSpotify {
 
         //assert msn error
         SpotifyReg.text_email_error_duplicate("Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
+
+    }
+
+    @Test(priority = 4,enabled = false, groups = {"failTests"})
+    public void checkEqualEmailsErrorFake(){
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //cookie
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+
+        //SpotifyReg
+        SpotifyReg.email_name("test999@test.com");
+        String email = faker.internet().emailAddress();
+        SpotifyReg.confirm_email_name(email);
+        SpotifyReg.password_click();
+
+        //assert msn error
+        SpotifyReg.text_email_error_duplicate("Este correo electrónico ya está conectado a una cuenta. Inicia sesión.");
+        SpotifyReg.text_email_error_not_equal("Las direcciones de correo electrónico no coinciden.");
 
     }
 
@@ -209,6 +236,35 @@ public class TestSpotify {
 
     }
 
+    @Test(priority = 8,groups = {"sucessTests"})
+    public void spotifyByPlaceHolderFakeTest(){
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
+        Utilities util = new Utilities(driver);
+        util.maximize_window();
+
+        //cookie
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+
+        //SpotifyReg
+        String email = faker.internet().emailAddress();
+        SpotifyReg.email_name(email);
+        SpotifyReg.confirm_email_name(email);
+        String pass = faker.internet().password();
+        SpotifyReg.password_send_key(pass);
+        String displayName=faker.internet().avatar();
+        SpotifyReg.display_name(displayName);
+
+        SpotifyReg.select_item_value_day("css_selector","31");
+        SpotifyReg.select_item_value_year("css_selector","1981");
+        SpotifyReg.assert_year("css_selector",1981);
+
+        SpotifyReg.gender_sex();
+
+    }
+
     @Test(priority = 9,groups = {"sucessTests"})
     public void spotifyByName(){
         SpotifyHome SpotifyHome =  new SpotifyHome(driver);
@@ -232,6 +288,38 @@ public class TestSpotify {
         SpotifyReg.assert_month("css_selector",2);
         SpotifyReg.select_item_value_year("css_selector","1981");
         SpotifyReg.assert_year("css_selector",1981);
+        SpotifyReg.gender_sex();
+
+        //aceptar terminos
+        SpotifyReg.accept_terms();
+
+    }
+
+    @Test(priority = 7,groups = {"sucessTests"})
+    public void spotifyByNameFakeTest(){
+        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
+        SpotifyForm SpotifyReg = new SpotifyForm(driver);
+        Utilities util = new Utilities(driver);
+
+        util.maximize_window();
+
+        //cookie
+        SpotifyHome.accept_cookies();
+        //SpotifyHome
+        SpotifyHome.registration();
+
+        //SpotifyReg
+        String email = faker.internet().emailAddress();
+        SpotifyReg.email_name(email);
+        SpotifyReg.confirm_email_name(email);
+        String pass = faker.internet().password();
+        SpotifyReg.password_send_key(pass);
+        String displayName=faker.internet().avatar();
+        SpotifyReg.display_name(displayName);
+
+        SpotifyReg.select_item_value_day("css_selector","31");
+        SpotifyReg.select_item_value_month("css_selector","Febrero");
+        SpotifyReg.select_item_value_year("css_selector","1981");
         SpotifyReg.gender_sex();
 
         //aceptar terminos
