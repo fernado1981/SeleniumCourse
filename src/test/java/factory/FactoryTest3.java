@@ -1,7 +1,7 @@
 package factory;
 
-import clase3.TestSalesForce;
-import clase3.TestSpotify;
+import clase3.SalesForceTest;
+import clase3.SpotifyTest;
 import org.testng.annotations.Factory;
 
 public class FactoryTest3 {
@@ -9,8 +9,8 @@ public class FactoryTest3 {
     @Factory
     public Object[] factoryTest3(){
         return new Object[]{
-                new TestSalesForce(),
-                new TestSpotify(),
+                new SalesForceTest(),
+                new SpotifyTest(),
         };
     }
 }
