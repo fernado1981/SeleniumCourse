@@ -1,6 +1,5 @@
-<suite name="Clase3" verbose="1">
+<suite name="Facebook" verbose="1">
     <test name="Ejercicios Testng">
-        <parameter name="specificTag" value="h2"></parameter>
         <groups>
             <run>
                 <include name="sucessTests"/>
@@ -8,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="clase3.TestSalesForce"></class>
+            <class name="Facebook.FacebookTest"></class>
         </classes>
     </test>
 </suite>

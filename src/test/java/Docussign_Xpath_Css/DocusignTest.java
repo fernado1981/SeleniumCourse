@@ -1,4 +1,4 @@
-package Xpath_Css;
+package Docussign_Xpath_Css;
 
 import WebObjectPage.DocusingForm;
 import hook.Utilities;
@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 public class DocusignTest {
 
     public WebDriver driver;
+    public DocusingForm Docusing;
+    public Utilities util;
 
     public static Faker faker = new Faker();
 
@@ -23,17 +25,14 @@ public class DocusignTest {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://go.docusign.com/o/trial/");
+        Docusing = new DocusingForm(driver);
+        Docusing.accept_cookies();
+        util = new Utilities(driver);
+        util.maximize_window();
     }
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void completeDocusignRegistrationForm(){
-        DocusingForm Docusing = new DocusingForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
-        //cookie
-        Docusing.accept_cookies();
-
         //formulario
         Docusing.fill_firstname("pepe");
         Docusing.fill_lastname("perez");
@@ -46,13 +45,6 @@ public class DocusignTest {
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void completeDocusignRegistrationFormFake(){
-        DocusingForm Docusing = new DocusingForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
-        //cookie
-        Docusing.accept_cookies();
-
         //formulario
         String name=faker.name().firstName();
         Docusing.fill_firstname(name);
@@ -74,13 +66,6 @@ public class DocusignTest {
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void defaultxPath(){
-        DocusingForm Docusing = new DocusingForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
-        //cookie
-        Docusing.accept_cookies();
-
         //formulario
         Docusing.fill_firstname("pepe");
         Docusing.fill_lastname("perez");

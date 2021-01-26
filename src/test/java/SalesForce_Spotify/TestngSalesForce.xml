@@ -1,5 +1,6 @@
-<suite name="Xpath_Css" verbose="1">
+<suite name="Clase3" verbose="1">
     <test name="Ejercicios Testng">
+        <parameter name="specificTag" value="h2"></parameter>
         <groups>
             <run>
                 <include name="sucessTests"/>
@@ -7,7 +8,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Xpath_Css.docusignTest"></class>
+            <class name="SalesForce_Spotify.TestSalesForce"></class>
         </classes>
     </test>
 </suite>

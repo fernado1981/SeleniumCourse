@@ -1,4 +1,4 @@
-package dropdow_link_radio;
+package Facebook_dropdow_link_radio;
 
 import WebObjectPage.FacebookHomePage;
 import WebObjectPage.FacebookFormRegister;
@@ -13,7 +13,9 @@ import org.testng.annotations.Test;
 public class FacebookTest {
 
     public WebDriver driver;
-
+    public  Utilities util;
+    public FacebookHomePage FacebookHome;
+    public FacebookFormRegister FacebookReg;
     public static Faker faker = new Faker();
 
     @Test(groups = {"sucessTests","failTests"})
@@ -24,18 +26,15 @@ public class FacebookTest {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://www.facebook.com/");
+        FacebookHome =new FacebookHomePage(driver);
+        FacebookReg = new FacebookFormRegister(driver);
+        FacebookHome.accept_cookies();
+        util = new Utilities(driver);
+        util.maximize_window();
     }
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void forgotAccountTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         FacebookHome.forget_passwd();
         FacebookReg.title_page(true);
         FacebookReg.get_url(false);
@@ -44,28 +43,12 @@ public class FacebookTest {
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void forgotAccountPartialLinkTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         FacebookHome.forget_passwd_partial_link_text("¿Has olvidado");
         FacebookReg.title_page(true);
     }
 
     @Test(priority = 3,groups = {"sucessTests"})
     public void checkBoxAndComboboxTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome open-registration
         FacebookHome.registration();
 
@@ -84,14 +67,6 @@ public class FacebookTest {
 
     @Test(priority = 3,groups = {"sucessTests"})
     public void checkBoxAndComboboxFakeTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome open-registration
         FacebookHome.registration();
 
@@ -112,14 +87,6 @@ public class FacebookTest {
 
     @Test(priority = 4,groups = {"sucessTests"})
     public void birthdateTest() {
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome
         FacebookHome.registration();
 
@@ -134,14 +101,6 @@ public class FacebookTest {
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void comboboxTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome
         FacebookHome.registration();
 
@@ -156,14 +115,6 @@ public class FacebookTest {
 
     @Test(priority = 6,groups = {"sucessTests"})
     public  void completeRegistration(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome
         FacebookHome.registration();
 
@@ -181,14 +132,6 @@ public class FacebookTest {
 
     @Test(priority = 6,groups = {"sucessTests"})
     public  void completeRegistrationFake(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome
         FacebookHome.registration();
 
@@ -210,14 +153,6 @@ public class FacebookTest {
 
     @Test(priority = 7,groups = {"sucessTests"})
     public void registrationFacebookTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome
         FacebookHome.registration();
 
@@ -235,21 +170,12 @@ public class FacebookTest {
 
     @Test(priority = 7,groups = {"sucessTests"})
     public void registrationFacebookFakeTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //facebookHome
         FacebookHome.registration();
-
         //fill form facebookReg
-        String name = faker.name().firstName();
+        String firstname=faker.name().firstName();
         String lastname = faker.name().lastName();
-        FacebookReg.fill_name_lastname_xpath(name, lastname);
+        FacebookReg.fill_name_lastname_xpath(firstname, lastname);
         String pass = faker.internet().password();
         FacebookReg.email_password_xpath("5555555", pass);
 

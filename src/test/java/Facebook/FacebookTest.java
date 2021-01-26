@@ -1,4 +1,4 @@
-package clase2;
+package Facebook;
 
 import WebObjectPage.FacebookHomePage;
 import WebObjectPage.FacebookFormRegister;
@@ -12,7 +12,9 @@ import org.testng.annotations.Test;
 public class FacebookTest {
 
     public WebDriver driver;
-
+    public Utilities util;
+    public FacebookHomePage FacebookHome;
+    public FacebookFormRegister FacebookReg;
 
     @Test(groups = {"sucessTests","failTests"})
 
@@ -22,18 +24,15 @@ public class FacebookTest {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://www.facebook.com/");
+        FacebookHome =new FacebookHomePage(driver);
+        FacebookHome.accept_cookies();
+        FacebookReg = new FacebookFormRegister(driver);
+        util = new Utilities(driver);
+        util.maximize_window();
     }
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void forgotAccountTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //FacebookHome
         FacebookHome.title_page(true);
         FacebookHome.forget_passwd();
@@ -45,14 +44,6 @@ public class FacebookTest {
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void forgotAccountPartialLinkTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //FacebookHome
         FacebookHome.title_page(true);
         FacebookHome.forget_passwd_partial_link_text("olvidado");
@@ -64,14 +55,6 @@ public class FacebookTest {
 
     @Test(priority = 3,groups = {"sucessTests"})
     public void registrationToFacebookTest(){
-        Utilities util = new Utilities(driver);
-        FacebookHomePage FacebookHome =new FacebookHomePage(driver);
-        FacebookFormRegister FacebookReg = new FacebookFormRegister(driver);
-        util.maximize_window();
-
-        //cookie
-        FacebookHome.accept_cookies();
-
         //FacebookHome
         FacebookHome.create_new_acount();
 

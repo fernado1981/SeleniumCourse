@@ -1,4 +1,4 @@
-package clase3;
+package SalesForce_Spotify;
 
 import WebObjectPage.SpotifyForm;
 import WebObjectPage.SpotifyHome;
@@ -16,6 +16,9 @@ import java.util.List;
 public class SpotifyTest {
 
     public WebDriver driver;
+    public SpotifyHome SpotifyHome;
+    public SpotifyForm SpotifyReg;
+    public Utilities util;
 
     public static Faker faker = new Faker();
 
@@ -27,14 +30,14 @@ public class SpotifyTest {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://www.spotify.com");
+        SpotifyHome =  new SpotifyHome(driver);
+        SpotifyReg =  new SpotifyForm(driver);
+        util = new Utilities(driver);
+        util.maximize_window();
     }
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void verifySpotifyTitle(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //title
@@ -44,11 +47,6 @@ public class SpotifyTest {
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void verifySignupUrl(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg =  new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -60,11 +58,6 @@ public class SpotifyTest {
 
     @Test(priority = 2, enabled = false, groups = {"failTests"})
     public void invalidEmailTest( ){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -81,11 +74,6 @@ public class SpotifyTest {
 
     @Test(priority = 3,enabled = false, groups = {"failTests"})
     public void validateExistingEmail(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -102,11 +90,6 @@ public class SpotifyTest {
 
     @Test(priority = 4,enabled = false, groups = {"failTests"})
     public void checkEqualEmailsErrorFake(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -126,11 +109,6 @@ public class SpotifyTest {
 
     @Test(priority = 4,enabled = false, groups = {"failTests"})
     public void checkEqualEmailsError(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -149,11 +127,6 @@ public class SpotifyTest {
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void checkEqualErrorMessages(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -168,10 +141,6 @@ public class SpotifyTest {
     @Test(priority = 6,groups = {"sucessTests"})
     @Parameters({"specificTag"})
     public void spotifytags(@Optional("h1") String tagName){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -183,12 +152,6 @@ public class SpotifyTest {
 
     @Test(priority = 7,groups = {"sucessTests"})
     public void spotifyByNameTest(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -212,11 +175,6 @@ public class SpotifyTest {
 
     @Test(priority = 8,groups = {"sucessTests"})
     public void spotifyByPlaceHolder(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -238,11 +196,6 @@ public class SpotifyTest {
 
     @Test(priority = 8,groups = {"sucessTests"})
     public void spotifyByPlaceHolderFakeTest(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -267,11 +220,6 @@ public class SpotifyTest {
 
     @Test(priority = 9,groups = {"sucessTests"})
     public void spotifyByName(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -297,12 +245,6 @@ public class SpotifyTest {
 
     @Test(priority = 7,groups = {"sucessTests"})
     public void spotifyByNameFakeTest(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        SpotifyForm SpotifyReg = new SpotifyForm(driver);
-        Utilities util = new Utilities(driver);
-
-        util.maximize_window();
-
         //cookie
         SpotifyHome.accept_cookies();
         //SpotifyHome
@@ -329,10 +271,6 @@ public class SpotifyTest {
 
     @Test(priority = 10,groups = {"sucessTests"})
     public void spotifyTest(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         SpotifyHome.title_page(true);
         SpotifyHome.get_url_es(true);
 
@@ -347,10 +285,6 @@ public class SpotifyTest {
 
     @Test(priority = 11,groups = {"sucessTests"})
     public void mostrarSpotifyLinks(){
-        SpotifyHome SpotifyHome =  new SpotifyHome(driver);
-        Utilities util = new Utilities(driver);
-        util.maximize_window();
-
         SpotifyHome.title_page(true);
         SpotifyHome.get_url_es(true);
 

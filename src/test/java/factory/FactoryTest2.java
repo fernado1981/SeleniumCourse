@@ -1,6 +1,6 @@
 package factory;
 
-import clase2.FacebookTest;
+import Facebook.FacebookTest;
 import org.testng.annotations.Factory;
 
 public class FactoryTest2 {

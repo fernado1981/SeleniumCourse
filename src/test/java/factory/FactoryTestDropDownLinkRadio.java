@@ -1,6 +1,6 @@
 package factory;
 
-import dropdow_link_radio.FacebookTest;
+import Facebook_dropdow_link_radio.FacebookTest;
 import org.testng.annotations.Factory;
 
 public class FactoryTestDropDownLinkRadio {

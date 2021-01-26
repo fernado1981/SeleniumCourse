@@ -1,5 +1,7 @@
-<suite name="dropdow_link_radio" verbose="1">
+<suite name="Clase3" verbose="1">
     <test name="Ejercicios Testng">
+        <parameter name="username" value="user@qa.com"></parameter>
+        <parameter name="password" value="holamundo123"></parameter>
         <groups>
             <run>
                 <include name="sucessTests"/>
@@ -7,7 +9,7 @@
             </run>
         </groups>
         <classes>
-            <class name="dropdow_link_radio.FacebookTest"></class>
+            <class name="SalesForce_Spotify.Testng"></class>
         </classes>
     </test>
 </suite>

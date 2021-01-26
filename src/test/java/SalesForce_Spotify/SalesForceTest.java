@@ -1,4 +1,4 @@
-package clase3;
+package SalesForce_Spotify;
 
 import WebObjectPage.SalesForceLoginPage;
 import WebObjectPage.SalesForceOktaFormPage;
@@ -14,8 +14,11 @@ import org.testng.annotations.Test;
 public class SalesForceTest {
 
     public WebDriver driver;
-
     public static Faker faker = new Faker();
+    public SalesForceLoginPage SalesForceLogin;
+    public SalesForceOktaFormPage okta;
+    public SalesForceUseCustomDomainPage customDomain;
+    public Utilities util;
 
     @Test(groups = {"sucessTests","failTests"})
 
@@ -23,14 +26,17 @@ public class SalesForceTest {
     @BeforeMethod
     public void setup(){
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+
         driver = new ChromeDriver();
         driver.get("https://login.salesforce.com/");
+        SalesForceLogin = new SalesForceLoginPage(driver);
+        okta = new SalesForceOktaFormPage(driver);
+        customDomain = new SalesForceUseCustomDomainPage(driver);
+        util = new Utilities(driver);
     }
 
     @Test(priority = 0, groups = {"sucessTests"})
     public void validateSalesforceLogoTest(){
-        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //login page
@@ -40,8 +46,6 @@ public class SalesForceTest {
 
     @Test(priority = 1, groups = {"sucessTests"})
     public void remenberMelsSelected(){
-        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //login page
@@ -52,8 +56,6 @@ public class SalesForceTest {
 
     @Test(priority = 2, groups = {"sucessTests"})
     public void FooterIsValid(){
-        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //login page
@@ -63,38 +65,30 @@ public class SalesForceTest {
 
     @Test(priority = 3, groups = {"sucessTests"})
     public void LoginFailureTest(){
-        SalesForceLoginPage login = new SalesForceLoginPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //login page
-        login.fill_username("test@test.com");
-        login.fill_password("123466");
-        login.login_btn_tap();
-        login.search_text("txtdesactivate");
+        SalesForceLogin.fill_username("test@test.com");
+        SalesForceLogin.fill_password("123466");
+        SalesForceLogin.login_btn_tap();
+        SalesForceLogin.search_text("txtdesactivate");
     }
 
     @Test(priority = 3, groups = {"sucessTests"})
     public void LoginFailurefakeTest(){
-        SalesForceLoginPage login = new SalesForceLoginPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //login page
         String email=faker.internet().emailAddress();
-        login.fill_username(email);
+        SalesForceLogin.fill_username(email);
         String pass = faker.internet().domainName();
-        login.fill_password(pass);
-        login.login_btn_tap();
-        login.search_text("txtdesactivatefake");
+        SalesForceLogin.fill_password(pass);
+        SalesForceLogin.login_btn_tap();
+        SalesForceLogin.search_text("txtdesactivatefake");
     }
 
     @Test(priority = 2,groups = {"sucessTests"})
     public void customSalesforceLinkA(){
-        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
-        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
-        SalesForceOktaFormPage okta = new SalesForceOktaFormPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //loginpage
@@ -117,10 +111,6 @@ public class SalesForceTest {
 
     @Test(priority = 2,groups = {"sucessTests"})
     public void customSalesforceLinkFake(){
-        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
-        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
-        SalesForceOktaFormPage okta = new SalesForceOktaFormPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //loginpage
@@ -144,9 +134,6 @@ public class SalesForceTest {
 
     @Test(priority = 2,groups = {"sucessTests"})
     public void customSalesforceLinkB(){
-        SalesForceLoginPage SalesForceLogin = new SalesForceLoginPage(driver);
-        SalesForceUseCustomDomainPage customDomain= new SalesForceUseCustomDomainPage(driver);
-        Utilities util = new Utilities(driver);
         util.maximize_window();
 
         //loginpage

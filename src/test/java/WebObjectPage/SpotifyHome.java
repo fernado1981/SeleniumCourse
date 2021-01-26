@@ -22,9 +22,7 @@ public class SpotifyHome {
         util = new Utilities(driver);
     }
 
-    public void accept_cookies(){
-        util.click_element_xpath(cookies_xpath);
-    }
+    public void accept_cookies(){ util.click_element_xpath(cookies_xpath); }
 
     public void title_page(boolean equal){ util.get_title(title_home, equal); }
 
