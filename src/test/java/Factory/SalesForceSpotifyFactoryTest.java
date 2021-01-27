@@ -1,10 +1,10 @@
-package factory;
+package Factory;
 
 import SalesForce_Spotify.SalesForceTest;
 import SalesForce_Spotify.SpotifyTest;
 import org.testng.annotations.Factory;
 
-public class FactoryTest3 {
+public class SalesForceSpotifyFactoryTest {
 
     @Factory
     public Object[] factoryTest3(){

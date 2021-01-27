@@ -1,10 +1,10 @@
 package WebObjectPage;
 
-import hook.Utilities;
+import Hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class spotifyHome {
+public class spotifyHomePage {
     WebDriver driver;
     WebDriverWait wait;
     Utilities util;
@@ -16,7 +16,7 @@ public class spotifyHome {
     String url="https://www.spotify.com";
     String url_es="https://www.spotify.com/es/";
 
-    public spotifyHome(WebDriver remoteDriver) {
+    public spotifyHomePage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

@@ -1,9 +1,9 @@
-package factory;
+package Factory;
 
 import Docussign_Xpath_Css.DocusignTest;
 import org.testng.annotations.Factory;
 
-public class FactoryTestXpathCss {
+public class DocussingFactoryXpathCssTest {
 
     @Factory
     public Object[] factoryTest4(){

@@ -1,6 +1,6 @@
 package WebObjectPage;
 
-import hook.Utilities;
+import Hook.Utilities;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class facebookFormRegister {
+public class facebookFormRegisterPage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -45,7 +45,7 @@ public class facebookFormRegister {
 
 
 
-    public facebookFormRegister(WebDriver remoteDriver) {
+    public facebookFormRegisterPage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

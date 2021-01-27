@@ -1,13 +1,13 @@
 package WebObjectPage;
 
-import hook.Utilities;
+import Hook.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class docusingForm {
+public class docusingTrialFormPage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -25,7 +25,7 @@ public class docusingForm {
     String ds_industry_name = "ds_industry";
 
 
-    public docusingForm(WebDriver remoteDriver) {
+    public docusingTrialFormPage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

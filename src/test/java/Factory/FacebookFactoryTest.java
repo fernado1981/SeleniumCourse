@@ -1,14 +1,14 @@
-package factory;
+package Factory;
 
 import Facebook.FacebookTest;
 import org.testng.annotations.Factory;
 
-public class FactoryTest2 {
+public class FacebookFactoryTest {
 
     @Factory
     public Object[] factoryTest2(){
         return new Object[]{
-                new FacebookTest(),
+                new Facebook.FacebookTest(),
         };
     }
 }

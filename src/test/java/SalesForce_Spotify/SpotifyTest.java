@@ -1,8 +1,8 @@
 package SalesForce_Spotify;
 
-import WebObjectPage.spotifyForm;
-import WebObjectPage.spotifyHome;
-import hook.Utilities;
+import WebObjectPage.spotifyFormPage;
+import WebObjectPage.spotifyHomePage;
+import Hook.Utilities;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -16,8 +16,8 @@ import java.util.List;
 public class SpotifyTest {
 
     public WebDriver driver;
-    public spotifyHome SpotifyHome;
-    public spotifyForm SpotifyReg;
+    public spotifyHomePage SpotifyHome;
+    public spotifyFormPage SpotifyReg;
     public Utilities util;
 
     public static Faker faker = new Faker();
@@ -30,8 +30,8 @@ public class SpotifyTest {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://www.spotify.com");
-        SpotifyHome =  new spotifyHome(driver);
-        SpotifyReg =  new spotifyForm(driver);
+        SpotifyHome =  new spotifyHomePage(driver);
+        SpotifyReg =  new spotifyFormPage(driver);
         util = new Utilities(driver);
         util.maximize_window();
     }

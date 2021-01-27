@@ -1,9 +1,9 @@
 package Facebook_dropdow_link_radio;
 
 import WebObjectPage.facebookHomePage;
-import WebObjectPage.facebookFormRegister;
+import WebObjectPage.facebookFormRegisterPage;
 import com.github.javafaker.Faker;
-import hook.Utilities;
+import Hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,7 +15,7 @@ public class FacebookTest {
     public WebDriver driver;
     public  Utilities util;
     public facebookHomePage FacebookHome;
-    public facebookFormRegister FacebookReg;
+    public facebookFormRegisterPage FacebookReg;
     public static Faker faker = new Faker();
 
     @Test(groups = {"sucessTests","failTests"})
@@ -27,7 +27,7 @@ public class FacebookTest {
         driver = new ChromeDriver();
         driver.get("https://www.facebook.com/");
         FacebookHome =new facebookHomePage(driver);
-        FacebookReg = new facebookFormRegister(driver);
+        FacebookReg = new facebookFormRegisterPage(driver);
         FacebookHome.accept_cookies();
         util = new Utilities(driver);
         util.maximize_window();

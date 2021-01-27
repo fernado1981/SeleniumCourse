@@ -1,8 +1,8 @@
 package Facebook;
 
 import WebObjectPage.facebookHomePage;
-import WebObjectPage.facebookFormRegister;
-import hook.Utilities;
+import WebObjectPage.facebookFormRegisterPage;
+import Hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -14,7 +14,7 @@ public class FacebookTest {
     public WebDriver driver;
     public Utilities util;
     public facebookHomePage FacebookHome;
-    public facebookFormRegister FacebookReg;
+    public facebookFormRegisterPage FacebookReg;
 
     @Test(groups = {"sucessTests","failTests"})
 
@@ -26,7 +26,7 @@ public class FacebookTest {
         driver.get("https://www.facebook.com/");
         FacebookHome =new facebookHomePage(driver);
         FacebookHome.accept_cookies();
-        FacebookReg = new facebookFormRegister(driver);
+        FacebookReg = new facebookFormRegisterPage(driver);
         util = new Utilities(driver);
         util.maximize_window();
     }

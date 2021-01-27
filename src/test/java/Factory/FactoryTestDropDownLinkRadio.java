@@ -1,4 +1,4 @@
-package factory;
+package Factory;
 
 import Facebook_dropdow_link_radio.FacebookTest;
 import org.testng.annotations.Factory;

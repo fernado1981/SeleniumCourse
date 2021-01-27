@@ -1,6 +1,6 @@
 package WebObjectPage;
 
-import hook.Utilities;
+import Hook.Utilities;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.HashMap;
 import java.util.Map;
 
-public class spotifyForm {
+public class spotifyFormPage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -52,7 +52,7 @@ public class spotifyForm {
     String url="https://www.spotify.com/es/signup/";
 
 
-    public spotifyForm(WebDriver remoteDriver) {
+    public spotifyFormPage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

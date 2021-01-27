@@ -1,7 +1,7 @@
 package DataProviderTest;
 
-import hook.DataFactory;
-import hook.Utilities;
+import Hook.DataFactory;
+import Hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;

@@ -3,7 +3,7 @@ package SalesForce_Spotify;
 import WebObjectPage.salesForceLoginPage;
 import WebObjectPage.salesForceOktaFormPage;
 import WebObjectPage.salesForceUseCustomDomainPage;
-import hook.Utilities;
+import Hook.Utilities;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
