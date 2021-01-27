@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SpotifyForm {
+public class spotifyForm {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -52,7 +52,7 @@ public class SpotifyForm {
     String url="https://www.spotify.com/es/signup/";
 
 
-    public SpotifyForm(WebDriver remoteDriver) {
+    public spotifyForm(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

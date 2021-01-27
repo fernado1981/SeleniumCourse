@@ -4,7 +4,7 @@ import hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SalesForceUseCustomDomainPage {
+public class salesForceUseCustomDomainPage {
     WebDriver driver;
     WebDriverWait wait;
     Utilities util;
@@ -13,7 +13,7 @@ public class SalesForceUseCustomDomainPage {
     String my_domain_name="mydomain";
     String continue_xpath="//button[contains(text(),'Continuar')]";
 
-    public SalesForceUseCustomDomainPage(WebDriver remoteDriver) {
+    public salesForceUseCustomDomainPage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

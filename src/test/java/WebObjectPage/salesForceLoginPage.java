@@ -4,7 +4,7 @@ import hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SalesForceLoginPage {
+public class salesForceLoginPage {
     WebDriver driver;
     WebDriverWait wait;
     Utilities util;
@@ -27,7 +27,7 @@ public class SalesForceLoginPage {
     String custom_domain_id_link="mydomainLink";
 
 
-    public SalesForceLoginPage(WebDriver remoteDriver) {
+    public salesForceLoginPage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

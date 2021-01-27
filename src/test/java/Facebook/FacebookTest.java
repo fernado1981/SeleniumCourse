@@ -1,7 +1,7 @@
 package Facebook;
 
-import WebObjectPage.FacebookHomePage;
-import WebObjectPage.FacebookFormRegister;
+import WebObjectPage.facebookHomePage;
+import WebObjectPage.facebookFormRegister;
 import hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,8 +13,8 @@ public class FacebookTest {
 
     public WebDriver driver;
     public Utilities util;
-    public FacebookHomePage FacebookHome;
-    public FacebookFormRegister FacebookReg;
+    public facebookHomePage FacebookHome;
+    public facebookFormRegister FacebookReg;
 
     @Test(groups = {"sucessTests","failTests"})
 
@@ -24,9 +24,9 @@ public class FacebookTest {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://www.facebook.com/");
-        FacebookHome =new FacebookHomePage(driver);
+        FacebookHome =new facebookHomePage(driver);
         FacebookHome.accept_cookies();
-        FacebookReg = new FacebookFormRegister(driver);
+        FacebookReg = new facebookFormRegister(driver);
         util = new Utilities(driver);
         util.maximize_window();
     }

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DocusingForm {
+public class docusingForm {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -25,7 +25,7 @@ public class DocusingForm {
     String ds_industry_name = "ds_industry";
 
 
-    public DocusingForm(WebDriver remoteDriver) {
+    public docusingForm(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

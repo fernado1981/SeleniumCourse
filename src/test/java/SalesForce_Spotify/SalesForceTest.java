@@ -1,8 +1,8 @@
 package SalesForce_Spotify;
 
-import WebObjectPage.SalesForceLoginPage;
-import WebObjectPage.SalesForceOktaFormPage;
-import WebObjectPage.SalesForceUseCustomDomainPage;
+import WebObjectPage.salesForceLoginPage;
+import WebObjectPage.salesForceOktaFormPage;
+import WebObjectPage.salesForceUseCustomDomainPage;
 import hook.Utilities;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
@@ -15,9 +15,9 @@ public class SalesForceTest {
 
     public WebDriver driver;
     public static Faker faker = new Faker();
-    public SalesForceLoginPage SalesForceLogin;
-    public SalesForceOktaFormPage okta;
-    public SalesForceUseCustomDomainPage customDomain;
+    public salesForceLoginPage SalesForceLogin;
+    public salesForceOktaFormPage okta;
+    public salesForceUseCustomDomainPage customDomain;
     public Utilities util;
 
     @Test(groups = {"sucessTests","failTests"})
@@ -29,9 +29,9 @@ public class SalesForceTest {
 
         driver = new ChromeDriver();
         driver.get("https://login.salesforce.com/");
-        SalesForceLogin = new SalesForceLoginPage(driver);
-        okta = new SalesForceOktaFormPage(driver);
-        customDomain = new SalesForceUseCustomDomainPage(driver);
+        SalesForceLogin = new salesForceLoginPage(driver);
+        okta = new salesForceOktaFormPage(driver);
+        customDomain = new salesForceUseCustomDomainPage(driver);
         util = new Utilities(driver);
     }
 

@@ -4,7 +4,7 @@ import hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class FacebookHomePage {
+public class facebookHomePage {
     WebDriver driver;
     WebDriverWait wait;
     Utilities util;
@@ -17,7 +17,7 @@ public class FacebookHomePage {
     String registration_xpath ="//a[@data-testid='open-registration-form-button']";
     String url="https://www.facebook.com/";
 
-    public FacebookHomePage(WebDriver remoteDriver) {
+    public facebookHomePage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

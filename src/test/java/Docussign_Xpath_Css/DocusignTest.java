@@ -1,6 +1,6 @@
 package Docussign_Xpath_Css;
 
-import WebObjectPage.DocusingForm;
+import WebObjectPage.docusingForm;
 import hook.Utilities;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class DocusignTest {
 
     public WebDriver driver;
-    public DocusingForm Docusing;
+    public docusingForm Docusing;
     public Utilities util;
 
     public static Faker faker = new Faker();
@@ -25,7 +25,7 @@ public class DocusignTest {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://go.docusign.com/o/trial/");
-        Docusing = new DocusingForm(driver);
+        Docusing = new docusingForm(driver);
         Docusing.accept_cookies();
         util = new Utilities(driver);
         util.maximize_window();

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FacebookFormRegister {
+public class facebookFormRegister {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -45,7 +45,7 @@ public class FacebookFormRegister {
 
 
 
-    public FacebookFormRegister(WebDriver remoteDriver) {
+    public facebookFormRegister(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

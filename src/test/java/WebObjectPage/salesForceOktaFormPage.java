@@ -4,7 +4,7 @@ import hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SalesForceOktaFormPage {
+public class salesForceOktaFormPage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -16,7 +16,7 @@ public class SalesForceOktaFormPage {
     String sign_in_btn_xpath="//input[@type='submit']";
 
 
-    public SalesForceOktaFormPage(WebDriver remoteDriver) {
+    public salesForceOktaFormPage(WebDriver remoteDriver) {
         driver = remoteDriver;
         wait = new WebDriverWait(driver, 10);
         util = new Utilities(driver);

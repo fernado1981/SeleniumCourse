@@ -3,7 +3,6 @@ package DataProviderTest;
 import hook.DataFactory;
 import hook.Utilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
