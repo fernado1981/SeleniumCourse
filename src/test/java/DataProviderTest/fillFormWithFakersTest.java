@@ -1,11 +1,12 @@
 package DataProviderTest;
 
-import hook.DataFactory;
-import hook.Utilities;
+import Hook.DataFactory;
+import Hook.Utilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class fillFormWithFakersTest {
@@ -15,29 +16,37 @@ public class fillFormWithFakersTest {
     String phone = DataFactory.getPhone();
 
     public WebDriver driver;
+    public Utilities util;
 
-    @Test
-    public void fillFormWithFakers(){
+
+    @BeforeMethod
+    public void setup() {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://login.salesforce.com/?locale=eu");
-
-        Utilities util = new Utilities(driver);
+        util = new Utilities(driver);
         util.maximize_window();
+    }
+
+    @Test
+    public void fillFormWithFakers() {
         util.click_element_id("signup_link");
 
         util.click_element_xpath("//button[@title='Accept Cookies Button']");
 
-        util.send_keys_name("UserFirstName",firstname);
-        util.send_keys_name("UserLastName",lastname);
-        util.send_keys_name("UserEmail",email);
-        util.send_keys_name("UserPhone",phone);
-        util.send_keys_name("CompanyName","ORT");
+        util.send_keys_name("UserFirstName", firstname);
+        util.send_keys_name("UserLastName", lastname);
+        util.send_keys_name("UserEmail", email);
+        util.send_keys_name("UserPhone", phone);
+        util.send_keys_name("CompanyName", "ORT");
         util.click_name("Start my free trial");
 
         String error = util.find_erromsg_xpath("//span[contains(text(),'Please read and agree to the Master Subscription Agreement')]");
-        Assert.assertEquals(error,"Please read and agree to the Master Subscription Agreement");
+        Assert.assertEquals(error, "Please read and agree to the Master Subscription Agreement");
+        }
 
-    }
-
+        @AfterMethod
+        public void cerrarDriver(){
+            driver.quit();
+        }
 }
