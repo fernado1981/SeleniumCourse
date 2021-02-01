@@ -1,7 +1,7 @@
 package Factory;
 
-import SalesForce_Spotify.SalesForceTest;
-import SalesForce_Spotify.SpotifyTest;
+import test.SalesForceTest.SalesForceTest;
+import test.SpotifyTest.SpotifyTest;
 import org.testng.annotations.Factory;
 
 public class SalesForceSpotifyFactoryTest {

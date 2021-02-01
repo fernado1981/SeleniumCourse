@@ -1,0 +1,13 @@
+<suite name="test.DocussignTest" parallel="classes" thread-count="2">
+    <test name="Ejercicios Testng">
+        <groups>
+            <run>
+                <include name="sucessTests"/>
+                <include name="failTests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="test.DocussignTest.docusignTest"></class>
+        </classes>
+    </test>
+</suite>
