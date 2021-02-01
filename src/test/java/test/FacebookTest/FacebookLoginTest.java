@@ -1,7 +1,7 @@
 package test.FacebookTest;
 
 
-import Hook.DriverFacebook;
+import Hook.BeforeAfterDriver.DriverFacebook;
 import PageObject.Facebook.facebookFormRegisterPage;
 import org.testng.annotations.Test;
 

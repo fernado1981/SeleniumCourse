@@ -1,24 +1,29 @@
-package Hook;
+package Hook.BeforeAfterDriver;
 
-import PageObject.Docussing.docusingTrialFormPage;
+import Hook.Utilities;
+import PageObject.SalesForce.salesForceLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-public class DriverDocussing {
+public class DriverSalesForce {
 
     public WebDriver driver;
-    public docusingTrialFormPage Docusing;
+    public salesForceLoginPage SalesForceLogin;
     public Utilities util;
+
+    @Test(groups = {"sucessTests","failTests"})
+
 
     @BeforeMethod
     public void setup(){
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+
         driver = new ChromeDriver();
-        driver.get("https://go.docusign.com/o/trial/");
-        Docusing = new docusingTrialFormPage(driver);
-        Docusing.accept_cookies();
+        driver.get("https://login.salesforce.com/");
+        SalesForceLogin = new salesForceLoginPage(driver);
         util = new Utilities(driver);
         util.maximize_window();
     }

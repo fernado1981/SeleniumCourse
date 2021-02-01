@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="15ae8375-17f4-4941-af1f-7e0f1192a4f7" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lFN3WebpgQ1BJ3oAQzYI4ecSsY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/drivers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.clase1.PrimerTest.getTitleTest">
+    <configuration name="clase1.PrimerTest.getTitleTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="CursoSeleniumSabado" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="clase1.PrimerTest" />
+      <option name="METHOD_NAME" value="getTitleTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clase1.PrimerTest.mostrarSpotifyLinks" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="CursoSeleniumSabado" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="clase1.PrimerTest" />
+      <option name="METHOD_NAME" value="mostrarSpotifyLinks" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clase1.PrimerTest.spotifyTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="CursoSeleniumSabado" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="clase1.PrimerTest" />
+      <option name="METHOD_NAME" value="spotifyTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clase1.PrimerTest.testing (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="CursoSeleniumSabado" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="clase1.PrimerTest" />
+      <option name="METHOD_NAME" value="testing" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clase1.PrimerTest.testing" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="CursoSeleniumSabado" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="clase1.PrimerTest" />
+      <option name="METHOD_NAME" value="testing" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="TestNG.clase1.PrimerTest.testing" />
+      <item itemvalue="TestNG.clase1.PrimerTest.testing (1)" />
+      <item itemvalue="TestNG.clase1.PrimerTest.spotifyTest" />
+      <item itemvalue="TestNG.clase1.PrimerTest.mostrarSpotifyLinks" />
+      <item itemvalue="TestNG.clase1.PrimerTest.getTitleTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.clase1.PrimerTest.getTitleTest" />
+        <item itemvalue="TestNG.clase1.PrimerTest.testing (1)" />
+        <item itemvalue="TestNG.clase1.PrimerTest.mostrarSpotifyLinks" />
+        <item itemvalue="TestNG.clase1.PrimerTest.spotifyTest" />
+        <item itemvalue="TestNG.clase1.PrimerTest.testing" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15ae8375-17f4-4941-af1f-7e0f1192a4f7" name="Default Changelist" comment="" />
+      <created>1607188680701</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607188680701</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="104" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607189441820">
+      <screen x="0" y="23" width="1280" height="709" />
+    </state>
+    <state x="104" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.709/1280.23.1920.1057@0.23.1280.709" timestamp="1607189441820" />
+    <state width="1280" height="172" key="GridCell.Tab.0.bottom" timestamp="1607193535693">
+      <screen x="0" y="23" width="1280" height="709" />
+    </state>
+    <state width="1280" height="172" key="GridCell.Tab.0.bottom/0.23.1280.709/1280.23.1920.1057@0.23.1280.709" timestamp="1607193535693" />
+    <state width="1280" height="166" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.23.1920.989@0.23.1280.777" timestamp="1607191028862" />
+    <state width="1280" height="172" key="GridCell.Tab.0.center" timestamp="1607193535692">
+      <screen x="0" y="23" width="1280" height="709" />
+    </state>
+    <state width="1280" height="172" key="GridCell.Tab.0.center/0.23.1280.709/1280.23.1920.1057@0.23.1280.709" timestamp="1607193535692" />
+    <state width="1280" height="166" key="GridCell.Tab.0.center/0.23.1280.777/1280.23.1920.989@0.23.1280.777" timestamp="1607191028861" />
+    <state width="1280" height="172" key="GridCell.Tab.0.left" timestamp="1607193535691">
+      <screen x="0" y="23" width="1280" height="709" />
+    </state>
+    <state width="1280" height="172" key="GridCell.Tab.0.left/0.23.1280.709/1280.23.1920.1057@0.23.1280.709" timestamp="1607193535691" />
+    <state width="1280" height="166" key="GridCell.Tab.0.left/0.23.1280.777/1280.23.1920.989@0.23.1280.777" timestamp="1607191028860" />
+    <state width="1280" height="172" key="GridCell.Tab.0.right" timestamp="1607193535692">
+      <screen x="0" y="23" width="1280" height="709" />
+    </state>
+    <state width="1280" height="172" key="GridCell.Tab.0.right/0.23.1280.709/1280.23.1920.1057@0.23.1280.709" timestamp="1607193535692" />
+    <state width="1280" height="166" key="GridCell.Tab.0.right/0.23.1280.777/1280.23.1920.989@0.23.1280.777" timestamp="1607191028862" />
+  </component>
+</project>

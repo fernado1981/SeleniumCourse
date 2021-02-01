@@ -1,6 +1,6 @@
 package test.FacebookTest;
 
-import Hook.DriverFacebook;
+import Hook.BeforeAfterDriver.DriverFacebook;
 import PageObject.Facebook.facebookFormRegisterPage;
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;

@@ -1,6 +1,6 @@
 package test.SalesForceTest;
 
-import Hook.DriverSalesForce;
+import Hook.BeforeAfterDriver.DriverSalesForce;
 import PageObject.SalesForce.salesForceOktaFormPage;
 import PageObject.SalesForce.salesForceUseCustomDomainPage;
 import com.github.javafaker.Faker;

@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="test.DocussignTest.docusignTest"></class>
+            <class name="test.DocussignTest.DocusignTest"></class>
         </classes>
     </test>
 </suite>

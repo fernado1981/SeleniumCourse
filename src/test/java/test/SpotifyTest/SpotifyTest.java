@@ -1,6 +1,6 @@
 package test.SpotifyTest;
 
-import Hook.DriverSpotify;
+import Hook.BeforeAfterDriver.DriverSpotify;
 import PageObject.Spotify.spotifyFormPage;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebElement;
@@ -16,8 +16,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 0,groups = {"sucessTests"})
     public void verifySpotifyTitle(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //title
         SpotifyHome.title_page(true);
 
@@ -25,8 +23,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 1,groups = {"sucessTests"})
     public void verifySignupUrl(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
         //SpotifyReg
@@ -36,8 +32,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 2, enabled = false, groups = {"failTests"})
     public void invalidEmailTest( ){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -52,8 +46,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 3,enabled = true, groups = {"failTests"})
     public void validateExistingEmail(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -68,8 +60,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 4,enabled = false, groups = {"failTests"})
     public void checkEqualEmailsErrorFake(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -87,8 +77,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 4,enabled = false, groups = {"failTests"})
     public void checkEqualEmailsError(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -105,8 +93,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void checkEqualErrorMessages(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
         //SpotifyReg
@@ -119,8 +105,6 @@ public class SpotifyTest extends DriverSpotify {
     @Test(priority = 6,groups = {"sucessTests"})
     @Parameters({"specificTag"})
     public void spotifytags(@Optional("h1") String tagName){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         SpotifyHome.registrationVoid();
         //SpotifyReg
@@ -130,8 +114,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 7,groups = {"sucessTests"})
     public void spotifyByNameTest(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -153,8 +135,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 8,groups = {"sucessTests"})
     public void spotifyByPlaceHolder(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -174,8 +154,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 8,groups = {"sucessTests"})
     public void spotifyByPlaceHolderFakeTest(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -198,8 +176,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 9,groups = {"sucessTests"})
     public void spotifyByName(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
@@ -223,8 +199,6 @@ public class SpotifyTest extends DriverSpotify {
 
     @Test(priority = 7,groups = {"sucessTests"})
     public void spotifyByNameFakeTest(){
-        //cookie
-        SpotifyHome.accept_cookies();
         //SpotifyHome
         spotifyFormPage SpotifyRegister = SpotifyHome.registration();
 
