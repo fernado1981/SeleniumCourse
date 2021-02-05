@@ -51,11 +51,11 @@ TestNG es un herramienta de automatización que se inspira en JUnit y sus anotac
     driver.closed();
     }
 
-package clase12;
-
-import org.testng.annotations.*;
-
-public class testng {
+**Otro Ejemplo**
+    
+    import org.testng.annotations.*;
+    
+    public class testng {
 
     import org.testng.annotations.*;
     
