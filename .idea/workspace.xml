@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e5d79e6-f733-40e0-859d-c7eb781a5e9f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cheat_sheet/READMEFACTORY.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cheat_sheet/READMEWAIT.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cheat_sheet/READMETESTNG.md" beforeDir="false" afterPath="$PROJECT_DIR$/cheat_sheet/READMETESTNG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/DocussignTest/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/DocussignTest/testng.xml" afterDir="false" />
     </list>
