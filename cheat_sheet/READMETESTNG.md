@@ -118,7 +118,7 @@ TestNG es un herramienta de automatización que se inspira en JUnit y sus anotac
 Priority es un parámetro.</br>
 Requiere que se le asigne un valor numérico para indicarle el orden de ejecución de los test.
 
-![TestngPriority](images/Priority.png)
+![TestngPriority](../images/Priority.png)
 
 ### Testng.xml
 Permite ejecutar uno o más test y/o classes al mismo tiempo:
