@@ -176,4 +176,20 @@ Se pueden agrupar los tests. De esta forma, podemos elegir desde el runner.xml c
     public void failTest(){
     }
 
+**@Test(dependeOnMethods={textX})**
+
+    @Test(dependeOnMethods={'testTwo','TestTree'})
+    public void testOne(){
+    ...
+    }
+    @Test
+    public void testTwo(){
+    ...
+    }
+    @Test
+    public void testTree(){
+    ...
+    }
+
+
 [Subir](#top)

@@ -1,5 +1,5 @@
 <a name='top'></a>
-[Localizadores - Assert](cheat_sheet/READMETOOLSELENIUM.md) | [TestNG](cheat_sheet/READMETESTNG.md)
+[Localizadores - Assert](cheat_sheet/READMETOOLSELENIUM.md) | [TestNG](cheat_sheet/READMETESTNG.md) | [Wait](cheat_sheet/READMEWAIT.md)
 
 # Qué es el Testing Automatizado?
 El Testing Automatizado es el proceso de automatizar los test manuales para probar una aplicación, Involucrando la creación de scripts que pueden ser ejecutados de forma repetitiva y no requiere ninguna intervención manual.
