@@ -23,6 +23,6 @@ public class singupPage {
         Thread.sleep(3000);
         MyUrl=util.url();
         int resultado = MyUrl.indexOf("signup");
-        Assert.assertTrue("contiene signup",resultado != -1);
+        Assert.assertTrue("contiene signup",resultado >= 1);
     }
 }
