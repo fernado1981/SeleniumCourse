@@ -16,7 +16,7 @@ public class NetflixHome {
         String registration_xpath="//a[contains(text(),'Iniciar sesión')]";
         String cookie="//button[@data-uia='cookie-disclosure-accept-cookies']";
         String email="//input[@data-uia='field-email']";
-        String btnEmpezar="//span[contains(text(),'Empezar')]";
+        String btnEmpezar="(//span[contains(text(),'Empezar')])[1]";
 
         public NetflixHome(WebDriver remoteDriver) {
             driver = remoteDriver;
