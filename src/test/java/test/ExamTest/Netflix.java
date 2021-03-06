@@ -13,15 +13,15 @@ public class Netflix extends DriverNetflix {
 
     @Test(priority = 5,groups = {"sucessTests"})
     public void get_title_page(){
-        NetflixHome.accept_cookie();
-        NetflixHome.title_page(true);
+        netflixHomePage.accept_cookie();
+        netflixHomePage.title_page(true);
     }
 
     @Test(priority = 4,groups = {"sucessTests"})
     public void iniciarSesionPageTest(){
-        NetflixHome.accept_cookie();
-        NetflixHome.title_page(true);
-        singinPage NetflixReg = NetflixHome.init_Session();
+        netflixHomePage.accept_cookie();
+        netflixHomePage.title_page(true);
+        singinPage NetflixReg = netflixHomePage.init_Session();
         NetflixReg.titleH1();
         NetflixReg.iniciarSesionFacebook();
 
@@ -29,9 +29,9 @@ public class Netflix extends DriverNetflix {
 
     @Test(priority = 3,groups = {"sucessTests"})
     public void loginToNetflixErrorTest(){
-        NetflixHome.accept_cookie();
-        NetflixHome.title_page(true);
-        singinPage NetflixReg = NetflixHome.init_Session();
+        netflixHomePage.accept_cookie();
+        netflixHomePage.title_page(true);
+        singinPage NetflixReg = netflixHomePage.init_Session();
         NetflixReg.titleH1();
         NetflixReg.iniciarSesionFacebook();
         NetflixReg.regEmailAndPass();
@@ -42,11 +42,11 @@ public class Netflix extends DriverNetflix {
 
     @Test(priority = 2,groups = {"sucessTests"})
     public void fakeEmailTest() throws InterruptedException {
-        NetflixHome.accept_cookie();
-        NetflixHome.title_page(true);
+        netflixHomePage.accept_cookie();
+        netflixHomePage.title_page(true);
         String email = faker.internet().emailAddress();
-        NetflixHome.correoMail(email);
-        singupPage NetflixSingUp = NetflixHome.tap_Empezar();
+        netflixHomePage.correoMail(email);
+        singupPage NetflixSingUp = netflixHomePage.tap_Empezar();
         NetflixSingUp.get_url();
     }
 
@@ -61,10 +61,10 @@ public class Netflix extends DriverNetflix {
 
     @Test(priority = 1,groups = {"sucessTests"},dataProvider = "email")
     public void nombrePaisCapital(String email) throws InterruptedException {
-        NetflixHome.accept_cookie();
-        NetflixHome.title_page(true);
-        NetflixHome.correoMail(email);
-        singupPage NetflixSingUp = NetflixHome.tap_Empezar();
+        netflixHomePage.accept_cookie();
+        netflixHomePage.title_page(true);
+        netflixHomePage.correoMail(email);
+        singupPage NetflixSingUp = netflixHomePage.tap_Empezar();
         NetflixSingUp.get_url();
     }
 

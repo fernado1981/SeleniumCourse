@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e5d79e6-f733-40e0-859d-c7eb781a5e9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cheat_sheet/READMETESTNG.md" beforeDir="false" afterPath="$PROJECT_DIR$/cheat_sheet/READMETESTNG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/TestngPriority.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Priority.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CursoSelenium.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TestNG---java---maven---selenium.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Hook/BeforeAfterDriver/DriverNetflix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Hook/BeforeAfterDriver/DriverNetflix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/Netflix/netflixHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/Netflix/NetflixHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test/ExamTest/Netflix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/ExamTest/Netflix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PageObject/Netflix/netflixHomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PageObject/Netflix/singupPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PageObject/Netflix/singupPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/factory/NetflixFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/factory/NetflixFactoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hook/BeforeAfterDriver/DriverNetflix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/hook/BeforeAfterDriver/DriverNetflix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/test/ExamTest/netflix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/ExamTest/netflix.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +33,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1o4H5su9yQra12sQnmRJHI2eedC" />
@@ -34,6 +51,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/cheat_sheet" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -42,6 +62,107 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
     </key>
+  </component>
+  <component name="RunManager" selected="TestNG.Netflix.nombrePaisCapital">
+    <configuration name="Netflix.fakeEmailTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG---java---maven---selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.ExamTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.ExamTest" />
+      <option name="MAIN_CLASS_NAME" value="test.ExamTest.Netflix" />
+      <option name="METHOD_NAME" value="fakeEmailTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Netflix.get_title_page" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG---java---maven---selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.ExamTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.ExamTest" />
+      <option name="MAIN_CLASS_NAME" value="test.ExamTest.Netflix" />
+      <option name="METHOD_NAME" value="get_title_page" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Netflix.iniciarSesionPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG---java---maven---selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.ExamTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.ExamTest" />
+      <option name="MAIN_CLASS_NAME" value="test.ExamTest.Netflix" />
+      <option name="METHOD_NAME" value="iniciarSesionPageTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Netflix.loginToNetflixErrorTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG---java---maven---selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.ExamTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.ExamTest" />
+      <option name="MAIN_CLASS_NAME" value="test.ExamTest.Netflix" />
+      <option name="METHOD_NAME" value="loginToNetflixErrorTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Netflix.nombrePaisCapital" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestNG---java---maven---selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.ExamTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.ExamTest" />
+      <option name="MAIN_CLASS_NAME" value="test.ExamTest.Netflix" />
+      <option name="METHOD_NAME" value="nombrePaisCapital" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.Netflix.nombrePaisCapital" />
+        <item itemvalue="TestNG.Netflix.fakeEmailTest" />
+        <item itemvalue="TestNG.Netflix.loginToNetflixErrorTest" />
+        <item itemvalue="TestNG.Netflix.iniciarSesionPageTest" />
+        <item itemvalue="TestNG.Netflix.get_title_page" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

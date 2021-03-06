@@ -1,7 +1,7 @@
 package Hook.BeforeAfterDriver;
 
 import Hook.Utilities;
-import PageObject.Netflix.netflixHomePage;
+import PageObject.Netflix.NetflixHome;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -12,7 +12,7 @@ public class DriverNetflix {
 
         public WebDriver driver;
         public Utilities util;
-        public netflixHomePage NetflixHome;
+        public NetflixHome netflixHomePage;
 
 
     @Test(groups = {"sucessTests","failTests"})
@@ -22,7 +22,7 @@ public class DriverNetflix {
             System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
             driver = new ChromeDriver();
             driver.get("https://www.netflix.com");
-            NetflixHome =new netflixHomePage(driver);
+            netflixHomePage = new NetflixHome(driver);
             util = new Utilities(driver);
             util.maximize_window();
         }

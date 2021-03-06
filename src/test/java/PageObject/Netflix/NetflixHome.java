@@ -4,7 +4,7 @@ import Hook.Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class netflixHomePage {
+public class NetflixHome {
 
 
         WebDriver driver;
@@ -16,9 +16,9 @@ public class netflixHomePage {
         String registration_xpath="//a[contains(text(),'Iniciar sesión')]";
         String cookie="//button[@data-uia='cookie-disclosure-accept-cookies']";
         String email="//input[@data-uia='field-email']";
-        String btnEmpezar="//span[contains(text(),'EMPEZAR')]";
+        String btnEmpezar="//span[contains(text(),'Empezar')]";
 
-        public netflixHomePage(WebDriver remoteDriver) {
+        public NetflixHome(WebDriver remoteDriver) {
             driver = remoteDriver;
             wait = new WebDriverWait(driver, 10);
             util = new Utilities(driver);
