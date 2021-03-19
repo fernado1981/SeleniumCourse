@@ -1,1 +1,1 @@
-Repositorio del curso TestNG with Selenium
+Repositorio con ejercicios diversos de TestNG
