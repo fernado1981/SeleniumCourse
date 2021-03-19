@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test.ExamTest.Netflix">
+    <test name="Ejercicios Testng">
+        <groups>
+            <run>
+                <include name="sucessTests"/>
+                <include name="failTests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="test.ExamTest.Netflix"></class>
+        </classes>
+    </test>
+</suite>
